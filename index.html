@@ -87,11 +87,16 @@
         }
 
         .logo-icon {
-            width: 48px;
-            height: 48px;
+            height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+
+        .logo-icon img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
         }
 
         .logo-icon svg {
@@ -1874,18 +1879,7 @@
             <div class="header-brand">
                 <div class="header-logo">
                     <div class="logo-icon">
-                        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Mountain shape -->
-                            <path d="M50 10 L85 75 L70 75 L50 40 L30 75 L15 75 Z" stroke="currentColor" stroke-width="2" fill="none"/>
-                            <!-- Inner V shape -->
-                            <path d="M50 30 L65 65 L50 50 L35 65 Z" stroke="currentColor" stroke-width="2" fill="none"/>
-                            <!-- Arrow pointing down -->
-                            <path d="M50 55 L50 85 M40 75 L50 85 L60 75" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <div>
-                        <div class="logo-text">MOUNTAIN VALLEY EXPRESS</div>
-                        <div class="logo-subtext">Recruiting Dashboard</div>
+                        <img src="mvelogo.png" alt="Mountain Valley Express" />
                     </div>
                 </div>
             </div>
