@@ -857,7 +857,7 @@
 
         .progress-line-fill {
             height: 100%;
-            width: 50%;
+            width: 70%;
             background: var(--gradient-accent);
             border-radius: 2px;
         }
@@ -1014,9 +1014,259 @@
         .footer-brand a:hover {
             text-decoration: underline;
         }
+
+        /* Onboarding Upload Styles */
+        .document-upload-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .upload-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px;
+            background: var(--input-bg);
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+        }
+
+        .upload-item:hover {
+            border-color: var(--mve-gold);
+        }
+
+        .upload-item.completed {
+            border-color: rgba(34, 197, 94, 0.3);
+        }
+
+        .upload-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            background: var(--bg-tertiary);
+        }
+
+        .upload-item.completed .upload-icon {
+            background: rgba(34, 197, 94, 0.2);
+            color: #22c55e;
+        }
+
+        .upload-item.pending .upload-icon {
+            background: rgba(212, 160, 25, 0.15);
+        }
+
+        .upload-info {
+            flex: 1;
+        }
+
+        .upload-name {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+        }
+
+        .upload-status {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .upload-status.success {
+            color: #22c55e;
+        }
+
+        .upload-status.warning {
+            color: var(--mve-gold-light);
+        }
+
+        .upload-btn {
+            padding: 8px 16px;
+            border-radius: 6px;
+            border: none;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: var(--gradient-accent);
+            color: var(--mve-navy-dark);
+        }
+
+        .upload-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(212, 160, 25, 0.3);
+        }
+
+        .upload-btn.uploaded {
+            background: var(--input-bg);
+            color: var(--text-secondary);
+        }
+
+        .upload-btn.uploaded:hover {
+            background: var(--bg-tertiary);
+            box-shadow: none;
+        }
+
+        /* Onboarding Progress Ring */
+        .onboarding-progress-card {
+            text-align: center;
+        }
+
+        .onboarding-progress-ring {
+            position: relative;
+            width: 140px;
+            height: 140px;
+            margin: 16px auto;
+        }
+
+        .onboarding-progress-ring svg {
+            transform: rotate(-90deg);
+            width: 100%;
+            height: 100%;
+        }
+
+        .progress-ring-bg {
+            fill: none;
+            stroke: var(--input-bg);
+            stroke-width: 8;
+        }
+
+        .progress-ring-fill {
+            fill: none;
+            stroke: url(#goldGradient);
+            stroke-width: 8;
+            stroke-linecap: round;
+            transition: stroke-dashoffset 0.5s ease;
+        }
+
+        .progress-ring-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .progress-percent {
+            display: block;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--mve-gold-light);
+        }
+
+        .progress-subtext {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .onboarding-checklist {
+            text-align: left;
+            margin-top: 16px;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+            font-size: 13px;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+
+        .checklist-item span {
+            width: 20px;
+            text-align: center;
+        }
+
+        .checklist-item.done {
+            color: #22c55e;
+        }
+
+        .checklist-item.pending span {
+            color: var(--text-muted);
+        }
+
+        /* Upcoming Tasks */
+        .upcoming-tasks {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .task-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 12px;
+            background: var(--input-bg);
+            border-radius: 10px;
+            border-left: 3px solid var(--mve-navy-light);
+        }
+
+        .task-item.urgent {
+            border-left-color: var(--mve-gold);
+        }
+
+        .task-date {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 44px;
+            padding: 6px 8px;
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+        }
+
+        .task-day {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1;
+        }
+
+        .task-month {
+            font-size: 10px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .task-info {
+            flex: 1;
+        }
+
+        .task-name {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+        }
+
+        .task-desc {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
     </style>
 </head>
 <body>
+    <!-- SVG Gradient Definition -->
+    <svg style="position: absolute; width: 0; height: 0;">
+        <defs>
+            <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#b8890f"/>
+                <stop offset="100%" stop-color="#f4b41a"/>
+            </linearGradient>
+        </defs>
+    </svg>
     <div class="dashboard">
         <!-- Header -->
         <div class="header">
@@ -1329,61 +1579,159 @@
                             <div class="progress-label active">Recruiter Review</div>
                         </div>
                         <div class="progress-step">
-                            <div class="progress-circle current">3</div>
+                            <div class="progress-circle completed">✓</div>
                             <div class="progress-label active">Video Interview</div>
                         </div>
                         <div class="progress-step">
-                            <div class="progress-circle">4</div>
-                            <div class="progress-label">Offer Stage</div>
+                            <div class="progress-circle current">4</div>
+                            <div class="progress-label active">Onboarding</div>
+                        </div>
+                        <div class="progress-step">
+                            <div class="progress-circle">5</div>
+                            <div class="progress-label">First Assignment</div>
                         </div>
                     </div>
                     <div class="journey-content">
                         <div class="journey-video">
-                            <div class="video-player">
-                                <div class="play-button"></div>
-                                <div class="video-controls">
-                                    <div class="video-progress">
-                                        <div class="video-progress-fill" style="width: 0%"></div>
+                            <!-- Onboarding Document Upload Section -->
+                            <div class="info-card">
+                                <h4>📄 Required Documents</h4>
+                                <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.6; margin-bottom: 16px;">
+                                    Please upload the following documents to complete your onboarding process.
+                                </p>
+                                <div class="document-upload-list">
+                                    <div class="upload-item completed">
+                                        <div class="upload-icon">✓</div>
+                                        <div class="upload-info">
+                                            <div class="upload-name">CDL License</div>
+                                            <div class="upload-status success">Uploaded & Verified</div>
+                                        </div>
+                                        <button class="upload-btn uploaded">View</button>
                                     </div>
-                                    <div class="video-time">0:00 / 5:00</div>
+                                    <div class="upload-item completed">
+                                        <div class="upload-icon">✓</div>
+                                        <div class="upload-info">
+                                            <div class="upload-name">Medical Certificate (DOT)</div>
+                                            <div class="upload-status success">Uploaded & Verified</div>
+                                        </div>
+                                        <button class="upload-btn uploaded">View</button>
+                                    </div>
+                                    <div class="upload-item pending">
+                                        <div class="upload-icon">📤</div>
+                                        <div class="upload-info">
+                                            <div class="upload-name">Social Security Card</div>
+                                            <div class="upload-status warning">Required</div>
+                                        </div>
+                                        <button class="upload-btn">Upload</button>
+                                    </div>
+                                    <div class="upload-item pending">
+                                        <div class="upload-icon">📤</div>
+                                        <div class="upload-info">
+                                            <div class="upload-name">Proof of Address</div>
+                                            <div class="upload-status warning">Required</div>
+                                        </div>
+                                        <button class="upload-btn">Upload</button>
+                                    </div>
+                                    <div class="upload-item pending">
+                                        <div class="upload-icon">📤</div>
+                                        <div class="upload-info">
+                                            <div class="upload-name">Direct Deposit Form</div>
+                                            <div class="upload-status">Optional</div>
+                                        </div>
+                                        <button class="upload-btn">Upload</button>
+                                    </div>
                                 </div>
                             </div>
                             <div class="info-card">
-                                <h4>Interview Instructions</h4>
-                                <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.6;">
-                                    Please record your video interview by clicking the play button above. 
-                                    You'll have 5 minutes to answer 3 questions about your experience 
-                                    and why you want to join our fleet. Make sure you're in a quiet 
-                                    environment with good lighting.
-                                </p>
+                                <h4>✍️ Forms & Agreements</h4>
+                                <div class="document-upload-list">
+                                    <div class="upload-item completed">
+                                        <div class="upload-icon">✓</div>
+                                        <div class="upload-info">
+                                            <div class="upload-name">W-4 Tax Form</div>
+                                            <div class="upload-status success">Completed</div>
+                                        </div>
+                                        <button class="upload-btn uploaded">View</button>
+                                    </div>
+                                    <div class="upload-item pending">
+                                        <div class="upload-icon">📝</div>
+                                        <div class="upload-info">
+                                            <div class="upload-name">I-9 Employment Eligibility</div>
+                                            <div class="upload-status warning">Action Required</div>
+                                        </div>
+                                        <button class="upload-btn">Complete</button>
+                                    </div>
+                                    <div class="upload-item pending">
+                                        <div class="upload-icon">📝</div>
+                                        <div class="upload-info">
+                                            <div class="upload-name">Company Policy Acknowledgement</div>
+                                            <div class="upload-status warning">Signature Required</div>
+                                        </div>
+                                        <button class="upload-btn">Sign</button>
+                                    </div>
+                                    <div class="upload-item pending">
+                                        <div class="upload-icon">📝</div>
+                                        <div class="upload-info">
+                                            <div class="upload-name">Drug & Alcohol Policy</div>
+                                            <div class="upload-status warning">Signature Required</div>
+                                        </div>
+                                        <button class="upload-btn">Sign</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="journey-info">
-                            <div class="ai-scoring">
-                                <h3>AI Analysis Preview <span class="ai-badge">Live Feedback</span></h3>
-                                <div class="score-bars">
-                                    <div class="score-item">
-                                        <span class="score-label">Communication</span>
-                                        <div class="score-bar-bg">
-                                            <div class="score-bar-fill" style="width: 0%; background: var(--input-bg);">—</div>
+                            <div class="info-card onboarding-progress-card">
+                                <h4>📊 Onboarding Progress</h4>
+                                <div class="onboarding-progress-ring">
+                                    <svg viewBox="0 0 100 100">
+                                        <circle class="progress-ring-bg" cx="50" cy="50" r="40"/>
+                                        <circle class="progress-ring-fill" cx="50" cy="50" r="40" stroke-dasharray="251.2" stroke-dashoffset="100.48"/>
+                                    </svg>
+                                    <div class="progress-ring-text">
+                                        <span class="progress-percent">60%</span>
+                                        <span class="progress-subtext">Complete</span>
+                                    </div>
+                                </div>
+                                <div class="onboarding-checklist">
+                                    <div class="checklist-item done"><span>✓</span> Documents Uploaded (3/5)</div>
+                                    <div class="checklist-item done"><span>✓</span> W-4 Completed</div>
+                                    <div class="checklist-item pending"><span>○</span> I-9 Form Pending</div>
+                                    <div class="checklist-item pending"><span>○</span> Policy Signatures (0/2)</div>
+                                    <div class="checklist-item pending"><span>○</span> Training Scheduled</div>
+                                </div>
+                            </div>
+                            <div class="info-card">
+                                <h4>📅 Upcoming Tasks</h4>
+                                <div class="upcoming-tasks">
+                                    <div class="task-item urgent">
+                                        <div class="task-date">
+                                            <span class="task-day">10</span>
+                                            <span class="task-month">Dec</span>
+                                        </div>
+                                        <div class="task-info">
+                                            <div class="task-name">Complete I-9 Verification</div>
+                                            <div class="task-desc">In-person ID verification required</div>
                                         </div>
                                     </div>
-                                    <div class="score-item">
-                                        <span class="score-label">Experience Match</span>
-                                        <div class="score-bar-bg">
-                                            <div class="score-bar-fill" style="width: 0%; background: var(--input-bg);">—</div>
+                                    <div class="task-item">
+                                        <div class="task-date">
+                                            <span class="task-day">12</span>
+                                            <span class="task-month">Dec</span>
+                                        </div>
+                                        <div class="task-info">
+                                            <div class="task-name">Drug Screening</div>
+                                            <div class="task-desc">LabCorp - 123 Main St, Dallas</div>
                                         </div>
                                     </div>
-                                    <div class="score-item">
-                                        <span class="score-label">Cultural Fit</span>
-                                        <div class="score-bar-bg">
-                                            <div class="score-bar-fill" style="width: 0%; background: var(--input-bg);">—</div>
+                                    <div class="task-item">
+                                        <div class="task-date">
+                                            <span class="task-day">15</span>
+                                            <span class="task-month">Dec</span>
                                         </div>
-                                    </div>
-                                    <div class="score-item">
-                                        <span class="score-label">Technical Skills</span>
-                                        <div class="score-bar-bg">
-                                            <div class="score-bar-fill" style="width: 0%; background: var(--input-bg);">—</div>
+                                        <div class="task-info">
+                                            <div class="task-name">Orientation Day</div>
+                                            <div class="task-desc">MVE Dallas Terminal - 8:00 AM</div>
                                         </div>
                                     </div>
                                 </div>
@@ -1399,12 +1747,12 @@
                                     <span class="info-value">Dallas, TX</span>
                                 </div>
                                 <div class="info-row">
-                                    <span class="info-label">Applied</span>
-                                    <span class="info-value">Dec 2, 2025</span>
+                                    <span class="info-label">Start Date</span>
+                                    <span class="info-value">Dec 15, 2025</span>
                                 </div>
                                 <div class="info-row">
                                     <span class="info-label">Status</span>
-                                    <span class="info-value" style="color: var(--mve-gold-light);">Video Interview</span>
+                                    <span class="info-value" style="color: var(--mve-gold-light);">Onboarding</span>
                                 </div>
                             </div>
                         </div>
@@ -1415,7 +1763,7 @@
 
         <!-- Footer -->
         <div class="footer-brand">
-            <p>Powered by <a href="https://www.mountainvalleyexpress.com/" target="_blank">Mountain Valley Express</a> • Delivering your freight. Connecting your world.</p>
+            <p>Powered by <a href="https://www.purplesquirrelai.com/" target="_blank">Purplue Squirrel AI</p>
             <p style="margin-top: 8px;">📞 877-325-6447 • 📧 customerservice@mveltl.com</p>
         </div>
     </div>
