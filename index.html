@@ -400,7 +400,7 @@
         }
 
         .chart-bar.revenue {
-            background: linear-gradient(90deg, #dc3545, var(--mve-gold));
+            background: #dc3545;
             width: 85%;
         }
 
@@ -428,18 +428,7 @@
             font-size: 28px;
             font-weight: 700;
             margin-bottom: 4px;
-        }
-
-        .summary-card-value.negative {
-            color: #dc3545;
-        }
-
-        .summary-card-value.positive {
-            color: #22c55e;
-        }
-
-        .summary-card-value.neutral {
-            color: var(--mve-gold-light);
+            color: #ffffff;
         }
 
         .summary-card-label {
@@ -1047,6 +1036,90 @@
             text-decoration: underline;
         }
 
+        /* List Header for Candidate Lists */
+        .list-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px;
+            background: var(--bg-tertiary);
+            border-radius: 10px;
+            margin-bottom: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .list-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .list-count {
+            font-size: 12px;
+            color: var(--mve-gold-light);
+            background: rgba(212, 160, 25, 0.15);
+            padding: 4px 10px;
+            border-radius: 12px;
+        }
+
+        /* Onboarding Header Card */
+        .onboarding-header-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: var(--bg-tertiary);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+
+        .onboarding-candidate-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .candidate-avatar.large {
+            width: 60px;
+            height: 60px;
+        }
+
+        .onboarding-candidate-info h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .onboarding-candidate-info p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .onboarding-progress-badge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 12px 20px;
+            background: rgba(212, 160, 25, 0.15);
+            border-radius: 12px;
+            border: 1px solid var(--mve-gold);
+        }
+
+        .onboarding-progress-badge .progress-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--mve-gold-light);
+        }
+
+        .onboarding-progress-badge .progress-label {
+            font-size: 11px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
         /* Onboarding Upload Styles */
         .document-upload-list {
             display: flex;
@@ -1492,14 +1565,19 @@
         }
 
         .action-modal {
-            background: var(--card-bg);
+            background: var(--mve-navy);
             border-radius: 16px;
             padding: 24px;
             width: 90%;
             max-width: 480px;
             border: 1px solid var(--border-color);
-            box-shadow: 0 20px 60px var(--shadow-color);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
             animation: modalSlideIn 0.3s ease;
+        }
+
+        [data-theme="light"] .action-modal {
+            background: #ffffff;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
         }
 
         @keyframes modalSlideIn {
@@ -1701,16 +1779,21 @@
             top: calc(100% + 6px);
             right: 0;
             min-width: 160px;
-            background: var(--card-bg);
+            background: var(--mve-navy);
             border: 1px solid var(--border-color);
             border-radius: 10px;
-            box-shadow: 0 8px 24px var(--shadow-color);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
             opacity: 0;
             visibility: hidden;
             transform: translateY(-10px);
             transition: all 0.2s ease;
             z-index: 100;
             overflow: hidden;
+        }
+
+        [data-theme="light"] .language-dropdown {
+            background: #ffffff;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
         }
 
         .language-selector.open .language-dropdown {
@@ -1936,7 +2019,7 @@
                                 <span class="slider-label">Revenue per Truck ($/day)</span>
                                 <span class="slider-value" id="revenue-value">$1,250</span>
                             </div>
-                            <input type="range" class="slider" id="revenue-slider" min="500" max="3000" value="1250">
+                            <input type="range" class="slider" id="revenue-slider" min="500" max="2000" value="1250">
                         </div>
                         <div class="slider-group">
                             <div class="slider-header">
@@ -1963,16 +2046,16 @@
                 </div>
                 <div class="summary-cards">
                     <div class="summary-card">
-                        <div class="summary-card-value negative" id="monthly-loss">$900,000</div>
-                        <div class="summary-card-label">Monthly Loss</div>
+                        <div class="summary-card-value" id="monthly-loss">$900,000</div>
+                        <div class="summary-card-label">Estimated Monthly Revenue Loss</div>
                     </div>
                     <div class="summary-card">
-                        <div class="summary-card-value positive" id="monthly-savings">$315,000</div>
-                        <div class="summary-card-label">Potential Monthly Savings</div>
+                        <div class="summary-card-value" id="monthly-savings">$315,000</div>
+                        <div class="summary-card-label">Potential Monthly Recovery</div>
                     </div>
                     <div class="summary-card">
-                        <div class="summary-card-value neutral" id="roi">412%</div>
-                        <div class="summary-card-label">ROI with FleetRecruit</div>
+                        <div class="summary-card-value" id="roi">412%</div>
+                        <div class="summary-card-label">Projected ROI</div>
                     </div>
                 </div>
             </div>
@@ -2160,9 +2243,64 @@
         <!-- Tab 3: Onboarding -->
         <div class="tab-content" id="onboarding">
             <div class="card">
-                <div class="card-title">Onboarding Progress - Marcus Johnson</div>
-                <div class="onboarding-content">
-                    <div class="onboarding-tracker">
+                <div class="card-title">Onboarding Management</div>
+                <div class="interviews-grid">
+                    <!-- Onboarding Candidates List -->
+                    <div class="candidates-list">
+                        <div class="list-header">
+                            <span class="list-title">Onboarding Candidates</span>
+                            <span class="list-count">4 active</span>
+                        </div>
+                        <div class="candidate-item active">
+                            <div class="candidate-avatar" style="background: url('https://i.pravatar.cc/100?img=1') center/cover, var(--gradient-accent);"></div>
+                            <div class="candidate-info">
+                                <div class="candidate-name">Marcus Johnson</div>
+                                <div class="candidate-role">CDL-A Driver • Dallas, TX</div>
+                            </div>
+                            <span class="candidate-status status-progress">Training</span>
+                        </div>
+                        <div class="candidate-item">
+                            <div class="candidate-avatar" style="background: url('https://i.pravatar.cc/100?img=5') center/cover, var(--gradient-accent);"></div>
+                            <div class="candidate-info">
+                                <div class="candidate-name">Sarah Williams</div>
+                                <div class="candidate-role">CDL-B Driver • Houston, TX</div>
+                            </div>
+                            <span class="candidate-status status-completed">Docs Complete</span>
+                        </div>
+                        <div class="candidate-item">
+                            <div class="candidate-avatar" style="background: url('https://i.pravatar.cc/100?img=9') center/cover, var(--gradient-accent);"></div>
+                            <div class="candidate-info">
+                                <div class="candidate-name">Emily Rodriguez</div>
+                                <div class="candidate-role">CDL-A Driver • Austin, TX</div>
+                            </div>
+                            <span class="candidate-status status-pending">Docs Pending</span>
+                        </div>
+                        <div class="candidate-item">
+                            <div class="candidate-avatar" style="background: url('https://i.pravatar.cc/100?img=12') center/cover, var(--gradient-accent);"></div>
+                            <div class="candidate-info">
+                                <div class="candidate-name">Robert Martinez</div>
+                                <div class="candidate-role">CDL-A Driver • San Antonio, TX</div>
+                            </div>
+                            <span class="candidate-status status-completed">Ready to Start</span>
+                        </div>
+                    </div>
+                    <!-- Onboarding Details -->
+                    <div class="candidate-details">
+                        <div class="onboarding-header-card">
+                            <div class="onboarding-candidate-info">
+                                <div class="candidate-avatar large" style="background: url('https://i.pravatar.cc/100?img=1') center/cover, var(--gradient-accent);"></div>
+                                <div>
+                                    <h3>Marcus Johnson</h3>
+                                    <p>CDL-A Driver • Start Date: Dec 15, 2025</p>
+                                </div>
+                            </div>
+                            <div class="onboarding-progress-badge">
+                                <span class="progress-value">75%</span>
+                                <span class="progress-label">Complete</span>
+                            </div>
+                        </div>
+                        <div class="onboarding-content">
+                            <div class="onboarding-tracker">
                         <div class="onboarding-step">
                             <div class="step-indicator">
                                 <div class="step-circle completed">✓</div>
@@ -2271,6 +2409,8 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
                     </div>
                 </div>
             </div>
@@ -2913,7 +3053,8 @@
 
             const dailyLoss = trucks * revenuePerTruck;
             const dailySavings = dailyLoss * (improvement / 100);
-            const monthlyLoss = dailyLoss * 30;
+            const remainingLoss = dailyLoss - dailySavings;
+            const monthlyLoss = remainingLoss * 30;
             const monthlySavings = dailySavings * 30;
 
             document.getElementById('trucks-value').textContent = trucks;
@@ -2923,12 +3064,14 @@
             const revenueBar = document.getElementById('revenue-bar');
             const savingsBar = document.getElementById('savings-bar');
 
-            const maxLoss = 100 * 3000;
-            const revenueWidth = Math.min((dailyLoss / maxLoss) * 100, 100);
+            const maxLoss = 100 * 2000;
+            // Revenue loss bar shows remaining loss (goes down as improvement goes up)
+            const lossWidth = Math.min((remainingLoss / maxLoss) * 100, 100);
+            // Savings bar shows recovered amount (goes up as improvement goes up)
             const savingsWidth = Math.min((dailySavings / maxLoss) * 100, 100);
 
-            revenueBar.style.width = revenueWidth + '%';
-            revenueBar.textContent = '$' + dailyLoss.toLocaleString();
+            revenueBar.style.width = Math.max(lossWidth, 5) + '%';
+            revenueBar.textContent = '$' + remainingLoss.toLocaleString();
 
             savingsBar.style.width = Math.max(savingsWidth, 5) + '%';
             savingsBar.textContent = '$' + dailySavings.toLocaleString();
