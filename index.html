@@ -323,13 +323,89 @@
 
         .truck-type-row {
             display: grid;
-            grid-template-columns: 180px 1fr 1fr;
-            gap: 16px;
+            grid-template-columns: 140px 1fr 1fr 1fr;
+            gap: 12px;
             align-items: center;
             background: var(--bg-tertiary);
             padding: 16px 20px;
             border-radius: 12px;
             border: 1px solid var(--border-color);
+        }
+
+        .truck-row-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .truck-mini-bar-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .truck-mini-bar-label {
+            font-size: 9px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .truck-mini-bar-value {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .truck-mini-bar-wrapper {
+            height: 16px;
+            background: var(--input-bg);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .truck-mini-bar {
+            height: 100%;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 6px;
+            font-size: 9px;
+            font-weight: 600;
+            color: white;
+            min-width: 30px;
+            transition: width 0.3s ease;
+        }
+
+        .truck-mini-bar.loss {
+            background: linear-gradient(90deg, #dc2626, #ef4444);
+        }
+
+        .truck-mini-bar.savings {
+            background: linear-gradient(90deg, #16a34a, #22c55e);
+        }
+
+        @media (max-width: 1200px) {
+            .truck-type-row {
+                grid-template-columns: 120px 1fr 1fr 1fr;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .truck-type-row {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            
+            .truck-type-label {
+                padding-bottom: 8px;
+                border-bottom: 1px solid var(--border-color);
+            }
         }
 
         .truck-type-label {
@@ -2910,7 +2986,7 @@
                     <!-- Truck Types Section -->
                     <div class="truck-types-section">
                         <!-- Dry Van -->
-                        <div class="truck-type-row">
+                        <div class="truck-type-row" data-truck="dryvan">
                             <div class="truck-type-label">
                                 <span class="truck-type-icon">🚛</span>
                                 <span>Dry Van</span>
@@ -2929,9 +3005,29 @@
                                 </div>
                                 <input type="range" class="truck-slider" id="dryvan-revenue-slider" min="500" max="2500" value="1100">
                             </div>
+                            <div class="truck-row-bars">
+                                <div class="truck-mini-bar-container">
+                                    <div class="truck-mini-bar-label">
+                                        <span><span class="tab-text-en">Daily Loss</span><span class="tab-text-es">Pérdida Diaria</span></span>
+                                        <span class="truck-mini-bar-value" id="dryvan-daily-loss">$8,800</span>
+                                    </div>
+                                    <div class="truck-mini-bar-wrapper">
+                                        <div class="truck-mini-bar loss" id="dryvan-loss-bar" style="width: 35%;"></div>
+                                    </div>
+                                </div>
+                                <div class="truck-mini-bar-container">
+                                    <div class="truck-mini-bar-label">
+                                        <span><span class="tab-text-en">Potential Savings</span><span class="tab-text-es">Ahorro Potencial</span></span>
+                                        <span class="truck-mini-bar-value" id="dryvan-daily-savings">$3,080</span>
+                                    </div>
+                                    <div class="truck-mini-bar-wrapper">
+                                        <div class="truck-mini-bar savings" id="dryvan-savings-bar" style="width: 12%;"></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <!-- Reefer -->
-                        <div class="truck-type-row">
+                        <div class="truck-type-row" data-truck="reefer">
                             <div class="truck-type-label">
                                 <span class="truck-type-icon">❄️</span>
                                 <span>Reefer</span>
@@ -2950,9 +3046,29 @@
                                 </div>
                                 <input type="range" class="truck-slider" id="reefer-revenue-slider" min="500" max="2500" value="1400">
                             </div>
+                            <div class="truck-row-bars">
+                                <div class="truck-mini-bar-container">
+                                    <div class="truck-mini-bar-label">
+                                        <span><span class="tab-text-en">Daily Loss</span><span class="tab-text-es">Pérdida Diaria</span></span>
+                                        <span class="truck-mini-bar-value" id="reefer-daily-loss">$8,400</span>
+                                    </div>
+                                    <div class="truck-mini-bar-wrapper">
+                                        <div class="truck-mini-bar loss" id="reefer-loss-bar" style="width: 33%;"></div>
+                                    </div>
+                                </div>
+                                <div class="truck-mini-bar-container">
+                                    <div class="truck-mini-bar-label">
+                                        <span><span class="tab-text-en">Potential Savings</span><span class="tab-text-es">Ahorro Potencial</span></span>
+                                        <span class="truck-mini-bar-value" id="reefer-daily-savings">$2,940</span>
+                                    </div>
+                                    <div class="truck-mini-bar-wrapper">
+                                        <div class="truck-mini-bar savings" id="reefer-savings-bar" style="width: 12%;"></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <!-- Flatbed -->
-                        <div class="truck-type-row">
+                        <div class="truck-type-row" data-truck="flatbed">
                             <div class="truck-type-label">
                                 <span class="truck-type-icon">🛻</span>
                                 <span>Flatbed</span>
@@ -2971,9 +3087,29 @@
                                 </div>
                                 <input type="range" class="truck-slider" id="flatbed-revenue-slider" min="500" max="2500" value="1300">
                             </div>
+                            <div class="truck-row-bars">
+                                <div class="truck-mini-bar-container">
+                                    <div class="truck-mini-bar-label">
+                                        <span><span class="tab-text-en">Daily Loss</span><span class="tab-text-es">Pérdida Diaria</span></span>
+                                        <span class="truck-mini-bar-value" id="flatbed-daily-loss">$5,200</span>
+                                    </div>
+                                    <div class="truck-mini-bar-wrapper">
+                                        <div class="truck-mini-bar loss" id="flatbed-loss-bar" style="width: 21%;"></div>
+                                    </div>
+                                </div>
+                                <div class="truck-mini-bar-container">
+                                    <div class="truck-mini-bar-label">
+                                        <span><span class="tab-text-en">Potential Savings</span><span class="tab-text-es">Ahorro Potencial</span></span>
+                                        <span class="truck-mini-bar-value" id="flatbed-daily-savings">$1,820</span>
+                                    </div>
+                                    <div class="truck-mini-bar-wrapper">
+                                        <div class="truck-mini-bar savings" id="flatbed-savings-bar" style="width: 7%;"></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <!-- Tanker -->
-                        <div class="truck-type-row">
+                        <div class="truck-type-row" data-truck="tanker">
                             <div class="truck-type-label">
                                 <span class="truck-type-icon">🛢️</span>
                                 <span>Tanker</span>
@@ -2992,9 +3128,29 @@
                                 </div>
                                 <input type="range" class="truck-slider" id="tanker-revenue-slider" min="500" max="2500" value="1600">
                             </div>
+                            <div class="truck-row-bars">
+                                <div class="truck-mini-bar-container">
+                                    <div class="truck-mini-bar-label">
+                                        <span><span class="tab-text-en">Daily Loss</span><span class="tab-text-es">Pérdida Diaria</span></span>
+                                        <span class="truck-mini-bar-value" id="tanker-daily-loss">$4,800</span>
+                                    </div>
+                                    <div class="truck-mini-bar-wrapper">
+                                        <div class="truck-mini-bar loss" id="tanker-loss-bar" style="width: 19%;"></div>
+                                    </div>
+                                </div>
+                                <div class="truck-mini-bar-container">
+                                    <div class="truck-mini-bar-label">
+                                        <span><span class="tab-text-en">Potential Savings</span><span class="tab-text-es">Ahorro Potencial</span></span>
+                                        <span class="truck-mini-bar-value" id="tanker-daily-savings">$1,680</span>
+                                    </div>
+                                    <div class="truck-mini-bar-wrapper">
+                                        <div class="truck-mini-bar savings" id="tanker-savings-bar" style="width: 7%;"></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <!-- Step Deck / Lowboy -->
-                        <div class="truck-type-row">
+                        <div class="truck-type-row" data-truck="stepdeck">
                             <div class="truck-type-label">
                                 <span class="truck-type-icon">🚚</span>
                                 <span>Step Deck / Lowboy</span>
@@ -3012,6 +3168,26 @@
                                     <span class="truck-slider-value" id="stepdeck-revenue-value">$1,500</span>
                                 </div>
                                 <input type="range" class="truck-slider" id="stepdeck-revenue-slider" min="500" max="2500" value="1500">
+                            </div>
+                            <div class="truck-row-bars">
+                                <div class="truck-mini-bar-container">
+                                    <div class="truck-mini-bar-label">
+                                        <span><span class="tab-text-en">Daily Loss</span><span class="tab-text-es">Pérdida Diaria</span></span>
+                                        <span class="truck-mini-bar-value" id="stepdeck-daily-loss">$4,500</span>
+                                    </div>
+                                    <div class="truck-mini-bar-wrapper">
+                                        <div class="truck-mini-bar loss" id="stepdeck-loss-bar" style="width: 18%;"></div>
+                                    </div>
+                                </div>
+                                <div class="truck-mini-bar-container">
+                                    <div class="truck-mini-bar-label">
+                                        <span><span class="tab-text-en">Potential Savings</span><span class="tab-text-es">Ahorro Potencial</span></span>
+                                        <span class="truck-mini-bar-value" id="stepdeck-daily-savings">$1,575</span>
+                                    </div>
+                                    <div class="truck-mini-bar-wrapper">
+                                        <div class="truck-mini-bar savings" id="stepdeck-savings-bar" style="width: 6%;"></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -4511,6 +4687,8 @@
 
         function updateCalculations() {
             let totalDailyLoss = 0;
+            const maxSingleTruckLoss = 50 * 2500; // Max loss for a single truck type (50 trucks × $2500)
+            const improvement = parseInt(improvementSlider.value);
 
             // Calculate daily loss for each truck type
             truckTypes.forEach(type => {
@@ -4522,15 +4700,37 @@
                 if (trucksSlider && revenueSlider) {
                     const trucks = parseInt(trucksSlider.value);
                     const revenue = parseInt(revenueSlider.value);
+                    const typeDailyLoss = trucks * revenue;
+                    const typeDailySavings = typeDailyLoss * (improvement / 100);
                     
                     trucksValue.textContent = trucks;
                     revenueValue.textContent = '$' + revenue.toLocaleString();
                     
-                    totalDailyLoss += trucks * revenue;
+                    totalDailyLoss += typeDailyLoss;
+
+                    // Update individual truck type bars
+                    const dailyLossEl = document.getElementById(`${type}-daily-loss`);
+                    const dailySavingsEl = document.getElementById(`${type}-daily-savings`);
+                    const lossBarEl = document.getElementById(`${type}-loss-bar`);
+                    const savingsBarEl = document.getElementById(`${type}-savings-bar`);
+
+                    if (dailyLossEl) {
+                        dailyLossEl.textContent = '$' + typeDailyLoss.toLocaleString();
+                    }
+                    if (dailySavingsEl) {
+                        dailySavingsEl.textContent = '$' + Math.round(typeDailySavings).toLocaleString();
+                    }
+                    if (lossBarEl) {
+                        const lossBarWidth = Math.min((typeDailyLoss / maxSingleTruckLoss) * 100, 100);
+                        lossBarEl.style.width = Math.max(lossBarWidth, 3) + '%';
+                    }
+                    if (savingsBarEl) {
+                        const savingsBarWidth = Math.min((typeDailySavings / maxSingleTruckLoss) * 100, 100);
+                        savingsBarEl.style.width = Math.max(savingsBarWidth, 3) + '%';
+                    }
                 }
             });
 
-            const improvement = parseInt(improvementSlider.value);
             const dailySavings = totalDailyLoss * (improvement / 100);
             const remainingLoss = totalDailyLoss - dailySavings;
             const annualLoss = remainingLoss * 365;
