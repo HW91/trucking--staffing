@@ -310,9 +310,97 @@
 
         /* Vacancy Cost Tracker Styles */
         .vacancy-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            display: flex;
+            flex-direction: column;
             gap: 24px;
+        }
+
+        .truck-types-section {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .truck-type-row {
+            display: grid;
+            grid-template-columns: 180px 1fr 1fr;
+            gap: 16px;
+            align-items: center;
+            background: var(--bg-tertiary);
+            padding: 16px 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .truck-type-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .truck-type-icon {
+            font-size: 20px;
+        }
+
+        .truck-slider-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .truck-slider-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .truck-slider-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .truck-slider-value {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .truck-slider {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: var(--input-bg);
+            outline: none;
+        }
+
+        .truck-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--gradient-accent);
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(212, 160, 25, 0.4);
+            transition: transform 0.2s ease;
+        }
+
+        .truck-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.1);
+        }
+
+        .improvement-section {
+            background: var(--bg-tertiary);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
         }
 
         .sliders-section {
@@ -348,6 +436,7 @@
 
         .slider {
             -webkit-appearance: none;
+            appearance: none;
             width: 100%;
             height: 8px;
             border-radius: 4px;
@@ -357,6 +446,7 @@
 
         .slider::-webkit-slider-thumb {
             -webkit-appearance: none;
+            appearance: none;
             width: 24px;
             height: 24px;
             border-radius: 50%;
@@ -368,6 +458,12 @@
 
         .slider::-webkit-slider-thumb:hover {
             transform: scale(1.1);
+        }
+
+        .results-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px;
         }
 
         .chart-section {
@@ -2811,36 +2907,134 @@
             <div class="card">
                 <div class="card-title"><span class="tab-text-en">Vacancy Cost Tracker</span><span class="tab-text-es">Rastreador de Costos de Vacantes</span></div>
                 <div class="vacancy-grid">
-                    <div class="sliders-section">
-                        <div class="slider-group">
-                            <div class="slider-header">
-                                <span class="slider-label"><span class="tab-text-en">Vacant Trucks</span><span class="tab-text-es">Camiones Vacantes</span></span>
-                                <span class="slider-value" id="trucks-value">24</span>
+                    <!-- Truck Types Section -->
+                    <div class="truck-types-section">
+                        <!-- Dry Van -->
+                        <div class="truck-type-row">
+                            <div class="truck-type-label">
+                                <span class="truck-type-icon">🚛</span>
+                                <span>Dry Van</span>
                             </div>
-                            <input type="range" class="slider" id="trucks-slider" min="0" max="100" value="24">
-                        </div>
-                        <div class="slider-group">
-                            <div class="slider-header">
-                                <span class="slider-label"><span class="tab-text-en">Revenue per Truck ($/day)</span><span class="tab-text-es">Ingreso por Camión ($/día)</span></span>
-                                <span class="slider-value" id="revenue-value">$1,250</span>
+                            <div class="truck-slider-group">
+                                <div class="truck-slider-header">
+                                    <span class="truck-slider-label"><span class="tab-text-en">Vacant Trucks</span><span class="tab-text-es">Camiones Vacantes</span></span>
+                                    <span class="truck-slider-value" id="dryvan-trucks-value">8</span>
+                                </div>
+                                <input type="range" class="truck-slider" id="dryvan-trucks-slider" min="0" max="50" value="8">
                             </div>
-                            <input type="range" class="slider" id="revenue-slider" min="500" max="2000" value="1250">
+                            <div class="truck-slider-group">
+                                <div class="truck-slider-header">
+                                    <span class="truck-slider-label"><span class="tab-text-en">Revenue $/day</span><span class="tab-text-es">Ingreso $/día</span></span>
+                                    <span class="truck-slider-value" id="dryvan-revenue-value">$1,100</span>
+                                </div>
+                                <input type="range" class="truck-slider" id="dryvan-revenue-slider" min="500" max="2500" value="1100">
+                            </div>
                         </div>
-                        <div class="slider-group">
-                            <div class="slider-header">
-                                <span class="slider-label"><span class="tab-text-en">Improvement Target</span><span class="tab-text-es">Meta de Mejora</span></span>
-                                <span class="slider-value" id="improvement-value">35%</span>
+                        <!-- Reefer -->
+                        <div class="truck-type-row">
+                            <div class="truck-type-label">
+                                <span class="truck-type-icon">❄️</span>
+                                <span>Reefer</span>
+                            </div>
+                            <div class="truck-slider-group">
+                                <div class="truck-slider-header">
+                                    <span class="truck-slider-label"><span class="tab-text-en">Vacant Trucks</span><span class="tab-text-es">Camiones Vacantes</span></span>
+                                    <span class="truck-slider-value" id="reefer-trucks-value">6</span>
+                                </div>
+                                <input type="range" class="truck-slider" id="reefer-trucks-slider" min="0" max="50" value="6">
+                            </div>
+                            <div class="truck-slider-group">
+                                <div class="truck-slider-header">
+                                    <span class="truck-slider-label"><span class="tab-text-en">Revenue $/day</span><span class="tab-text-es">Ingreso $/día</span></span>
+                                    <span class="truck-slider-value" id="reefer-revenue-value">$1,400</span>
+                                </div>
+                                <input type="range" class="truck-slider" id="reefer-revenue-slider" min="500" max="2500" value="1400">
+                            </div>
+                        </div>
+                        <!-- Flatbed -->
+                        <div class="truck-type-row">
+                            <div class="truck-type-label">
+                                <span class="truck-type-icon">🛻</span>
+                                <span>Flatbed</span>
+                            </div>
+                            <div class="truck-slider-group">
+                                <div class="truck-slider-header">
+                                    <span class="truck-slider-label"><span class="tab-text-en">Vacant Trucks</span><span class="tab-text-es">Camiones Vacantes</span></span>
+                                    <span class="truck-slider-value" id="flatbed-trucks-value">4</span>
+                                </div>
+                                <input type="range" class="truck-slider" id="flatbed-trucks-slider" min="0" max="50" value="4">
+                            </div>
+                            <div class="truck-slider-group">
+                                <div class="truck-slider-header">
+                                    <span class="truck-slider-label"><span class="tab-text-en">Revenue $/day</span><span class="tab-text-es">Ingreso $/día</span></span>
+                                    <span class="truck-slider-value" id="flatbed-revenue-value">$1,300</span>
+                                </div>
+                                <input type="range" class="truck-slider" id="flatbed-revenue-slider" min="500" max="2500" value="1300">
+                            </div>
+                        </div>
+                        <!-- Tanker -->
+                        <div class="truck-type-row">
+                            <div class="truck-type-label">
+                                <span class="truck-type-icon">🛢️</span>
+                                <span>Tanker</span>
+                            </div>
+                            <div class="truck-slider-group">
+                                <div class="truck-slider-header">
+                                    <span class="truck-slider-label"><span class="tab-text-en">Vacant Trucks</span><span class="tab-text-es">Camiones Vacantes</span></span>
+                                    <span class="truck-slider-value" id="tanker-trucks-value">3</span>
+                                </div>
+                                <input type="range" class="truck-slider" id="tanker-trucks-slider" min="0" max="50" value="3">
+                            </div>
+                            <div class="truck-slider-group">
+                                <div class="truck-slider-header">
+                                    <span class="truck-slider-label"><span class="tab-text-en">Revenue $/day</span><span class="tab-text-es">Ingreso $/día</span></span>
+                                    <span class="truck-slider-value" id="tanker-revenue-value">$1,600</span>
+                                </div>
+                                <input type="range" class="truck-slider" id="tanker-revenue-slider" min="500" max="2500" value="1600">
+                            </div>
+                        </div>
+                        <!-- Step Deck / Lowboy -->
+                        <div class="truck-type-row">
+                            <div class="truck-type-label">
+                                <span class="truck-type-icon">🚚</span>
+                                <span>Step Deck / Lowboy</span>
+                            </div>
+                            <div class="truck-slider-group">
+                                <div class="truck-slider-header">
+                                    <span class="truck-slider-label"><span class="tab-text-en">Vacant Trucks</span><span class="tab-text-es">Camiones Vacantes</span></span>
+                                    <span class="truck-slider-value" id="stepdeck-trucks-value">3</span>
+                                </div>
+                                <input type="range" class="truck-slider" id="stepdeck-trucks-slider" min="0" max="50" value="3">
+                            </div>
+                            <div class="truck-slider-group">
+                                <div class="truck-slider-header">
+                                    <span class="truck-slider-label"><span class="tab-text-en">Revenue $/day</span><span class="tab-text-es">Ingreso $/día</span></span>
+                                    <span class="truck-slider-value" id="stepdeck-revenue-value">$1,500</span>
+                                </div>
+                                <input type="range" class="truck-slider" id="stepdeck-revenue-slider" min="500" max="2500" value="1500">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Results Section -->
+                    <div class="results-section">
+                        <!-- Improvement Target -->
+                        <div class="chart-bar-container">
+                            <div class="chart-bar-label"><span class="tab-text-en">Improvement Target</span><span class="tab-text-es">Meta de Mejora</span></div>
+                            <div class="slider-header" style="margin-bottom: 8px;">
+                                <span></span>
+                                <span class="slider-value" id="improvement-value" style="font-size: 20px;">35%</span>
                             </div>
                             <input type="range" class="slider" id="improvement-slider" min="0" max="100" value="35">
                         </div>
-                    </div>
-                    <div class="chart-section">
+                        <!-- Daily Revenue Loss -->
                         <div class="chart-bar-container">
                             <div class="chart-bar-label"><span class="tab-text-en">Daily Revenue Loss</span><span class="tab-text-es">Pérdida Diaria de Ingresos</span></div>
                             <div class="chart-bar-wrapper">
                                 <div class="chart-bar revenue" id="revenue-bar">$30,000</div>
                             </div>
                         </div>
+                        <!-- Potential Daily Savings -->
                         <div class="chart-bar-container">
                             <div class="chart-bar-label"><span class="tab-text-en">Potential Daily Savings</span><span class="tab-text-es">Ahorros Diarios Potenciales</span></div>
                             <div class="chart-bar-wrapper">
@@ -2851,12 +3045,12 @@
                 </div>
                 <div class="summary-cards">
                     <div class="summary-card">
-                        <div class="summary-card-value" id="monthly-loss">$900,000</div>
-                        <div class="summary-card-label"><span class="tab-text-en">Estimated Monthly Revenue Loss</span><span class="tab-text-es">Pérdida Mensual Estimada de Ingresos</span></div>
+                        <div class="summary-card-value" id="annual-loss">$10,800,000</div>
+                        <div class="summary-card-label"><span class="tab-text-en">Estimated Annual Revenue Loss</span><span class="tab-text-es">Pérdida Anual Estimada de Ingresos</span></div>
                     </div>
                     <div class="summary-card">
-                        <div class="summary-card-value" id="monthly-savings">$315,000</div>
-                        <div class="summary-card-label"><span class="tab-text-en">Potential Monthly Recovery</span><span class="tab-text-es">Recuperación Mensual Potencial</span></div>
+                        <div class="summary-card-value" id="annual-savings">$3,780,000</div>
+                        <div class="summary-card-label"><span class="tab-text-en">Potential Annual Recovery</span><span class="tab-text-es">Recuperación Anual Potencial</span></div>
                     </div>
                     <div class="summary-card">
                         <div class="summary-card-value" id="roi">412%</div>
@@ -3297,6 +3491,34 @@
                     </div>
                     <div class="journey-content">
                         <div class="journey-video">
+                            <!-- Start Interview Section -->
+                            <div class="info-card" style="background: linear-gradient(135deg, rgba(212, 160, 25, 0.15), rgba(65, 105, 225, 0.1)); border: 2px solid var(--mve-gold);">
+                                <h4><span class="tab-text-en">🎥 Complete Your Video Interview</span><span class="tab-text-es">🎥 Completa Tu Entrevista por Video</span></h4>
+                                <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.6; margin-bottom: 16px;">
+                                    <span class="tab-text-en">Ready to take the next step? Click below to record your video interview. This typically takes 10-15 minutes and can be completed from any device with a camera.</span><span class="tab-text-es">¿Listo para dar el siguiente paso? Haz clic abajo para grabar tu entrevista por video. Esto típicamente toma 10-15 minutos y puede completarse desde cualquier dispositivo con cámara.</span>
+                                </p>
+                                <div style="display: flex; flex-direction: column; gap: 12px;">
+                                    <a href="#" class="start-interview-btn" style="display: inline-flex; align-items: center; justify-content: center; gap: 12px; padding: 16px 32px; background: var(--gradient-accent); color: var(--mve-navy-dark); border: none; border-radius: 12px; font-size: 16px; font-weight: 600; text-decoration: none; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 4px 15px rgba(212, 160, 25, 0.4);">
+                                        <span style="font-size: 20px;">▶</span>
+                                        <span class="tab-text-en">Start Interview Now</span><span class="tab-text-es">Iniciar Entrevista Ahora</span>
+                                    </a>
+                                    <div style="display: flex; align-items: center; gap: 16px; justify-content: center; color: var(--text-muted); font-size: 13px;">
+                                        <span style="display: flex; align-items: center; gap: 6px;">
+                                            <span>⏱️</span>
+                                            <span class="tab-text-en">~15 min</span><span class="tab-text-es">~15 min</span>
+                                        </span>
+                                        <span style="display: flex; align-items: center; gap: 6px;">
+                                            <span>📱</span>
+                                            <span class="tab-text-en">Mobile friendly</span><span class="tab-text-es">Compatible con móvil</span>
+                                        </span>
+                                        <span style="display: flex; align-items: center; gap: 6px;">
+                                            <span>🔒</span>
+                                            <span class="tab-text-en">Secure</span><span class="tab-text-es">Seguro</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            
                             <!-- Onboarding Document Upload Section -->
                             <div class="info-card">
                                 <h4><span class="tab-text-en">📄 Required Documents</span><span class="tab-text-es">📄 Documentos Requeridos</span></h4>
@@ -4283,33 +4505,44 @@
         // Initialize on page load
         initializeCandidateLists();
 
-        // Vacancy Cost Calculator
-        const trucksSlider = document.getElementById('trucks-slider');
-        const revenueSlider = document.getElementById('revenue-slider');
+        // Vacancy Cost Calculator - Truck Types
+        const truckTypes = ['dryvan', 'reefer', 'flatbed', 'tanker', 'stepdeck'];
         const improvementSlider = document.getElementById('improvement-slider');
 
         function updateCalculations() {
-            const trucks = parseInt(trucksSlider.value);
-            const revenuePerTruck = parseInt(revenueSlider.value);
+            let totalDailyLoss = 0;
+
+            // Calculate daily loss for each truck type
+            truckTypes.forEach(type => {
+                const trucksSlider = document.getElementById(`${type}-trucks-slider`);
+                const revenueSlider = document.getElementById(`${type}-revenue-slider`);
+                const trucksValue = document.getElementById(`${type}-trucks-value`);
+                const revenueValue = document.getElementById(`${type}-revenue-value`);
+
+                if (trucksSlider && revenueSlider) {
+                    const trucks = parseInt(trucksSlider.value);
+                    const revenue = parseInt(revenueSlider.value);
+                    
+                    trucksValue.textContent = trucks;
+                    revenueValue.textContent = '$' + revenue.toLocaleString();
+                    
+                    totalDailyLoss += trucks * revenue;
+                }
+            });
+
             const improvement = parseInt(improvementSlider.value);
+            const dailySavings = totalDailyLoss * (improvement / 100);
+            const remainingLoss = totalDailyLoss - dailySavings;
+            const annualLoss = remainingLoss * 365;
+            const annualSavings = dailySavings * 365;
 
-            const dailyLoss = trucks * revenuePerTruck;
-            const dailySavings = dailyLoss * (improvement / 100);
-            const remainingLoss = dailyLoss - dailySavings;
-            const monthlyLoss = remainingLoss * 30;
-            const monthlySavings = dailySavings * 30;
-
-            document.getElementById('trucks-value').textContent = trucks;
-            document.getElementById('revenue-value').textContent = '$' + revenuePerTruck.toLocaleString();
             document.getElementById('improvement-value').textContent = improvement + '%';
 
             const revenueBar = document.getElementById('revenue-bar');
             const savingsBar = document.getElementById('savings-bar');
 
-            const maxLoss = 100 * 2000;
-            // Revenue loss bar shows remaining loss (goes down as improvement goes up)
+            const maxLoss = 50 * 5 * 2500; // 50 trucks × 5 types × $2500 max
             const lossWidth = Math.min((remainingLoss / maxLoss) * 100, 100);
-            // Savings bar shows recovered amount (goes up as improvement goes up)
             const savingsWidth = Math.min((dailySavings / maxLoss) * 100, 100);
 
             revenueBar.style.width = Math.max(lossWidth, 5) + '%';
@@ -4318,15 +4551,20 @@
             savingsBar.style.width = Math.max(savingsWidth, 5) + '%';
             savingsBar.textContent = '$' + dailySavings.toLocaleString();
 
-            document.getElementById('monthly-loss').textContent = '$' + monthlyLoss.toLocaleString();
-            document.getElementById('monthly-savings').textContent = '$' + monthlySavings.toLocaleString();
+            document.getElementById('annual-loss').textContent = '$' + annualLoss.toLocaleString();
+            document.getElementById('annual-savings').textContent = '$' + annualSavings.toLocaleString();
 
-            const roi = monthlySavings > 0 ? Math.round((monthlySavings / 5000) * 100) : 0;
+            const roi = annualSavings > 0 ? Math.round((annualSavings / 60000) * 100) : 0;
             document.getElementById('roi').textContent = roi + '%';
         }
 
-        trucksSlider.addEventListener('input', updateCalculations);
-        revenueSlider.addEventListener('input', updateCalculations);
+        // Add event listeners to all sliders
+        truckTypes.forEach(type => {
+            const trucksSlider = document.getElementById(`${type}-trucks-slider`);
+            const revenueSlider = document.getElementById(`${type}-revenue-slider`);
+            if (trucksSlider) trucksSlider.addEventListener('input', updateCalculations);
+            if (revenueSlider) revenueSlider.addEventListener('input', updateCalculations);
+        });
         improvementSlider.addEventListener('input', updateCalculations);
 
         updateCalculations();
