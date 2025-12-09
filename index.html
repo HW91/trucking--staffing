@@ -571,6 +571,33 @@
             display: none;
         }
 
+        .video-player .video-placeholder {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg, var(--mve-navy-dark), var(--mve-navy));
+            z-index: 5;
+            gap: 16px;
+        }
+
+        .video-player.has-video .video-placeholder {
+            display: none;
+        }
+
+        .video-placeholder-icon {
+            font-size: 48px;
+            opacity: 0.6;
+        }
+
+        .video-placeholder-text {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+            text-align: center;
+        }
+
         .video-demo-overlay {
             position: absolute;
             top: 12px;
@@ -2931,7 +2958,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="video-player has-video">
+                        <div class="video-player has-video" id="videoPlayerContainer">
+                            <div class="video-placeholder">
+                                <span class="video-placeholder-icon">🎥</span>
+                                <span class="video-placeholder-text"><span class="tab-text-en">No interview video available</span><span class="tab-text-es">No hay video de entrevista disponible</span></span>
+                            </div>
                             <video id="interviewVideo" autoplay loop muted playsinline>
                                 <source src="interview.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
@@ -4039,14 +4070,30 @@
             if (videoTimeEl) videoTimeEl.textContent = candidate.videoTime;
             if (videoProgressFill) videoProgressFill.style.width = candidate.videoProgress + '%';
 
-            // Update video source if candidate has a video
+            // Update video source or show placeholder
             const video = document.getElementById('interviewVideo');
-            if (video && candidate.videoSrc) {
-                const source = video.querySelector('source');
-                if (source) {
-                    source.src = candidate.videoSrc;
-                    video.load();
-                    video.play();
+            const videoContainer = document.getElementById('videoPlayerContainer');
+            const pauseBtn = document.querySelector('.video-pause-btn');
+            const demoOverlay = document.querySelector('.video-demo-overlay');
+            
+            if (video && videoContainer) {
+                if (candidate.videoSrc) {
+                    // Show video
+                    videoContainer.classList.add('has-video');
+                    const source = video.querySelector('source');
+                    if (source) {
+                        source.src = candidate.videoSrc;
+                        video.load();
+                        video.play();
+                    }
+                    if (pauseBtn) pauseBtn.style.display = 'flex';
+                    if (demoOverlay) demoOverlay.style.display = 'flex';
+                } else {
+                    // Show placeholder
+                    videoContainer.classList.remove('has-video');
+                    video.pause();
+                    if (pauseBtn) pauseBtn.style.display = 'none';
+                    if (demoOverlay) demoOverlay.style.display = 'none';
                 }
             }
 
