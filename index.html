@@ -2988,7 +2988,6 @@
                         <!-- Dry Van -->
                         <div class="truck-type-row" data-truck="dryvan">
                             <div class="truck-type-label">
-                                <span class="truck-type-icon">🚛</span>
                                 <span>Dry Van</span>
                             </div>
                             <div class="truck-slider-group">
@@ -3029,7 +3028,6 @@
                         <!-- Reefer -->
                         <div class="truck-type-row" data-truck="reefer">
                             <div class="truck-type-label">
-                                <span class="truck-type-icon">❄️</span>
                                 <span>Reefer</span>
                             </div>
                             <div class="truck-slider-group">
@@ -3067,10 +3065,49 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- Box Truck -->
+                        <div class="truck-type-row" data-truck="boxtruck">
+                            <div class="truck-type-label">
+                                <span>Box Truck</span>
+                            </div>
+                            <div class="truck-slider-group">
+                                <div class="truck-slider-header">
+                                    <span class="truck-slider-label"><span class="tab-text-en">Vacant Trucks</span><span class="tab-text-es">Camiones Vacantes</span></span>
+                                    <span class="truck-slider-value" id="boxtruck-trucks-value">5</span>
+                                </div>
+                                <input type="range" class="truck-slider" id="boxtruck-trucks-slider" min="0" max="50" value="5">
+                            </div>
+                            <div class="truck-slider-group">
+                                <div class="truck-slider-header">
+                                    <span class="truck-slider-label"><span class="tab-text-en">Revenue $/day</span><span class="tab-text-es">Ingreso $/día</span></span>
+                                    <span class="truck-slider-value" id="boxtruck-revenue-value">$900</span>
+                                </div>
+                                <input type="range" class="truck-slider" id="boxtruck-revenue-slider" min="500" max="2500" value="900">
+                            </div>
+                            <div class="truck-row-bars">
+                                <div class="truck-mini-bar-container">
+                                    <div class="truck-mini-bar-label">
+                                        <span><span class="tab-text-en">Daily Loss</span><span class="tab-text-es">Pérdida Diaria</span></span>
+                                        <span class="truck-mini-bar-value" id="boxtruck-daily-loss">$4,500</span>
+                                    </div>
+                                    <div class="truck-mini-bar-wrapper">
+                                        <div class="truck-mini-bar loss" id="boxtruck-loss-bar" style="width: 18%;"></div>
+                                    </div>
+                                </div>
+                                <div class="truck-mini-bar-container">
+                                    <div class="truck-mini-bar-label">
+                                        <span><span class="tab-text-en">Potential Savings</span><span class="tab-text-es">Ahorro Potencial</span></span>
+                                        <span class="truck-mini-bar-value" id="boxtruck-daily-savings">$1,575</span>
+                                    </div>
+                                    <div class="truck-mini-bar-wrapper">
+                                        <div class="truck-mini-bar savings" id="boxtruck-savings-bar" style="width: 6%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <!-- Flatbed -->
                         <div class="truck-type-row" data-truck="flatbed">
                             <div class="truck-type-label">
-                                <span class="truck-type-icon">🛻</span>
                                 <span>Flatbed</span>
                             </div>
                             <div class="truck-slider-group">
@@ -3111,7 +3148,6 @@
                         <!-- Tanker -->
                         <div class="truck-type-row" data-truck="tanker">
                             <div class="truck-type-label">
-                                <span class="truck-type-icon">🛢️</span>
                                 <span>Tanker</span>
                             </div>
                             <div class="truck-slider-group">
@@ -3152,7 +3188,6 @@
                         <!-- Step Deck / Lowboy -->
                         <div class="truck-type-row" data-truck="stepdeck">
                             <div class="truck-type-label">
-                                <span class="truck-type-icon">🚚</span>
                                 <span>Step Deck / Lowboy</span>
                             </div>
                             <div class="truck-slider-group">
@@ -3282,7 +3317,6 @@
                         <!-- Selected Candidate Header -->
                         <div class="interview-candidate-header" id="interviewCandidateHeader">
                             <div class="interview-candidate-info">
-                                <div class="candidate-avatar" id="interviewCandidateAvatar" style="background: url('https://i.pravatar.cc/100?img=1') center/cover, var(--gradient-accent);"></div>
                                 <div>
                                     <h3 id="interviewCandidateName">Marcus Johnson</h3>
                                     <p id="interviewCandidateRole">CDL-A Driver • 8 yrs exp</p>
@@ -3486,7 +3520,6 @@
                     <div class="candidate-details">
                         <div class="onboarding-header-card">
                             <div class="onboarding-candidate-info">
-                                <div class="candidate-avatar large" style="background: url('https://i.pravatar.cc/100?img=1') center/cover, var(--gradient-accent);"></div>
                                 <div>
                                     <h3>Marcus Johnson</h3>
                                     <p><span class="tab-text-en">CDL-A Driver • Start Date: Dec 15, 2025</span><span class="tab-text-es">Conductor CDL-A • Fecha de Inicio: 15 Dic, 2025</span></p>
@@ -4682,7 +4715,7 @@
         initializeCandidateLists();
 
         // Vacancy Cost Calculator - Truck Types
-        const truckTypes = ['dryvan', 'reefer', 'flatbed', 'tanker', 'stepdeck'];
+        const truckTypes = ['dryvan', 'reefer', 'boxtruck', 'flatbed', 'tanker', 'stepdeck'];
         const improvementSlider = document.getElementById('improvement-slider');
 
         function updateCalculations() {
