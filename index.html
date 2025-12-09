@@ -949,6 +949,31 @@
             background: var(--mve-navy-dark);
         }
 
+        .interview-summary-text {
+            margin-top: 20px;
+            padding: 16px;
+            background: var(--input-bg);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .interview-summary-text h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--mve-gold);
+            margin-bottom: 10px;
+        }
+
+        .interview-summary-text p {
+            font-size: 13px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        .interview-summary-text.no-summary {
+            display: none;
+        }
+
         /* Onboarding Section Styles */
         .onboarding-content {
             display: grid;
@@ -3423,6 +3448,11 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- Interview Summary Text -->
+                            <div class="interview-summary-text" id="interviewSummaryText">
+                                <h4><span class="tab-text-en">📋 Recruiter Notes</span><span class="tab-text-es">📋 Notas del Reclutador</span></h4>
+                                <p id="interviewSummaryContent">Marcus presented himself as a confident and articulate candidate with strong communication skills. He demonstrated excellent knowledge of DOT regulations and safety protocols. With 8 years of OTR experience, he's handled diverse freight types including hazmat. He mentioned leaving his previous employer due to scheduling conflicts but spoke positively about his experience there. His CDL-A is current with all endorsements. Recommended for long-haul routes based on his experience and professional demeanor.</p>
+                            </div>
                         </div>
                         <!-- Recruiter Actions Panel -->
                         <div class="recruiter-actions">
@@ -4328,6 +4358,7 @@
                 videoTime: '2:34 / 7:15',
                 videoProgress: 35,
                 scores: { communications: 88, experience: 75, skills: 92, history: 70, resume: 85 },
+                interviewSummary: "Marcus presented himself as a confident and articulate candidate with strong communication skills. He demonstrated excellent knowledge of DOT regulations and safety protocols. With 8 years of OTR experience, he's handled diverse freight types including hazmat. He mentioned leaving his previous employer due to scheduling conflicts but spoke positively about his experience there. His CDL-A is current with all endorsements. Recommended for long-haul routes based on his experience and professional demeanor.",
                 onboarding: {
                     progress: 75,
                     status: 'Training',
@@ -4363,6 +4394,7 @@
                 videoTime: '5:42 / 5:42',
                 videoProgress: 100,
                 scores: { communications: 92, experience: 68, skills: 85, history: 88, resume: 90 },
+                interviewSummary: "Sarah demonstrated exceptional communication skills and a positive attitude throughout the interview. She has 3 years of regional delivery experience with an excellent safety record - zero accidents or violations. While her experience is shorter than some candidates, her attention to detail and customer service orientation stood out. She expressed strong interest in box truck and local delivery routes. Her CDL-B is current and she's eager to grow with the company. Great fit for customer-facing delivery roles.",
                 onboarding: {
                     progress: 100,
                     status: 'Docs Complete',
@@ -4413,6 +4445,7 @@
                 videoTime: '4:15 / 4:15',
                 videoProgress: 100,
                 scores: { communications: 78, experience: 82, skills: 88, history: 75, resume: 80 },
+                interviewSummary: "Emily showed solid technical knowledge and 5 years of diverse driving experience including reefer and dry van. She was somewhat reserved during the interview but answered questions thoroughly. She has experience with ELD systems and fleet management software. There was a brief employment gap in 2023 which she explained was for family medical leave. Her references from previous employers were positive. She prefers regional routes to be closer to family. Recommend for reefer routes given her temperature-sensitive cargo experience.",
                 onboarding: {
                     progress: 50,
                     status: 'Docs Pending',
@@ -4462,6 +4495,7 @@
                 videoTime: '6:00 / 6:00',
                 videoProgress: 100,
                 scores: { communications: 95, experience: 90, skills: 94, history: 92, resume: 88 },
+                interviewSummary: "Robert is an outstanding candidate - one of our strongest this quarter. With 7 years of OTR experience including tanker and hazmat endorsements, he brings versatility and expertise. He articulated safety procedures clearly and demonstrated leadership qualities from his time as a trainer at his previous company. Clean MVR with no accidents or violations. He left his previous employer for better benefits and growth opportunities. Highly professional, bilingual (English/Spanish), and immediately available. Strongly recommend for any route type - prioritize for tanker or hazmat runs.",
                 onboarding: {
                     progress: 100,
                     status: 'Ready to Start',
@@ -4552,6 +4586,19 @@
                     fill.textContent = score > 0 ? score + '%' : 'N/A';
                 }
             });
+
+            // Update interview summary
+            const summaryContainer = document.getElementById('interviewSummaryText');
+            const summaryContent = document.getElementById('interviewSummaryContent');
+            if (summaryContainer && summaryContent) {
+                if (candidate.interviewSummary) {
+                    summaryContainer.classList.remove('no-summary');
+                    summaryContent.textContent = candidate.interviewSummary;
+                } else {
+                    summaryContainer.classList.add('no-summary');
+                    summaryContent.textContent = '';
+                }
+            }
         }
 
         // Update Onboarding Details Panel
