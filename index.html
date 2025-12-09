@@ -1162,7 +1162,7 @@
             align-items: center;
             justify-content: center;
             font-weight: 600;
-            background: var(--mve-navy-dark);
+            background: var(--input-bg);
             border: 3px solid var(--border-color);
             color: var(--text-primary);
         }
@@ -1190,6 +1190,18 @@
         .progress-label.active {
             color: var(--text-primary);
             font-weight: 500;
+        }
+
+        .step-timeframe {
+            font-size: 10px;
+            color: var(--text-muted);
+            text-align: center;
+            margin-top: 4px;
+        }
+
+        .step-timeframe.due {
+            color: var(--mve-gold);
+            font-weight: 600;
         }
 
         .journey-content {
@@ -2648,7 +2660,7 @@
                 </div>
                 <div class="theme-toggle" id="themeToggle" title="Toggle Light/Dark Mode"></div>
                 <div class="notification-badge">🔔</div>
-                <div class="user-avatar">JD</div>
+                <div class="user-avatar">JR</div>
             </div>
         </div>
 
@@ -3671,22 +3683,27 @@
                         <div class="progress-step">
                             <div class="progress-circle completed">✓</div>
                             <div class="progress-label active"><span class="tab-text-en">Resume Received</span><span class="tab-text-es">Currículum Recibido</span></div>
+                            <div class="step-timeframe"><span class="tab-text-en">Completed Dec 2</span><span class="tab-text-es">Completado Dic 2</span></div>
                         </div>
                         <div class="progress-step">
                             <div class="progress-circle completed">✓</div>
                             <div class="progress-label active"><span class="tab-text-en">Recruiter Review</span><span class="tab-text-es">Revisión del Reclutador</span></div>
+                            <div class="step-timeframe"><span class="tab-text-en">Completed Dec 4</span><span class="tab-text-es">Completado Dic 4</span></div>
                         </div>
                         <div class="progress-step">
                             <div class="progress-circle completed">✓</div>
                             <div class="progress-label active"><span class="tab-text-en">Video Interview</span><span class="tab-text-es">Entrevista por Video</span></div>
+                            <div class="step-timeframe"><span class="tab-text-en">Completed Dec 6</span><span class="tab-text-es">Completado Dic 6</span></div>
                         </div>
                         <div class="progress-step">
                             <div class="progress-circle current">4</div>
                             <div class="progress-label active"><span class="tab-text-en">Onboarding</span><span class="tab-text-es">Incorporación</span></div>
+                            <div class="step-timeframe due"><span class="tab-text-en">Due Dec 12</span><span class="tab-text-es">Vence Dic 12</span></div>
                         </div>
                         <div class="progress-step">
                             <div class="progress-circle">5</div>
                             <div class="progress-label"><span class="tab-text-en">First Assignment</span><span class="tab-text-es">Primera Asignación</span></div>
+                            <div class="step-timeframe"><span class="tab-text-en">Est. Dec 16</span><span class="tab-text-es">Est. Dic 16</span></div>
                         </div>
                     </div>
                     <div class="journey-content">
