@@ -3721,7 +3721,7 @@
                             <!-- Interview Summary Text -->
                             <div class="interview-summary-text" id="interviewSummaryText">
                                 <h4><span class="tab-text-en">📋 Recruiter Notes</span><span class="tab-text-es">📋 Notas del Reclutador</span></h4>
-                                <p id="interviewSummaryContent">Marcus presented himself as a confident and articulate candidate with strong communication skills. He demonstrated excellent knowledge of DOT regulations and safety protocols. With 8 years of OTR experience, he's handled diverse freight types including hazmat. He mentioned leaving his previous employer due to scheduling conflicts but spoke positively about his experience there. His CDL-A is current with all endorsements. Recommended for long-haul routes based on his experience and professional demeanor.</p>
+                                <p id="interviewSummaryContent"><span class="tab-text-en">Marcus presented himself as a confident and articulate candidate with strong communication skills. He demonstrated excellent knowledge of DOT regulations and safety protocols. With 8 years of OTR experience, he's handled diverse freight types including hazmat. He mentioned leaving his previous employer due to scheduling conflicts but spoke positively about his experience there. His CDL-A is current with all endorsements. Recommended for long-haul routes based on his experience and professional demeanor.</span><span class="tab-text-es">Marcus se presentó como un candidato seguro y articulado con fuertes habilidades de comunicación. Demostró un excelente conocimiento de las regulaciones del DOT y los protocolos de seguridad. Con 8 años de experiencia OTR, ha manejado diversos tipos de carga incluyendo materiales peligrosos. Mencionó que dejó su empleador anterior debido a conflictos de horario pero habló positivamente sobre su experiencia allí. Su CDL-A está vigente con todos los endosos. Recomendado para rutas de larga distancia basándose en su experiencia y comportamiento profesional.</span></p>
                             </div>
                         </div>
                         <!-- Recruiter Actions Panel -->
@@ -3763,7 +3763,7 @@
                             </div>
                             <div class="quick-notes">
                                 <h4><span class="tab-text-en">Quick Notes</span><span class="tab-text-es">Notas Rápidas</span></h4>
-                                <textarea class="notes-input" placeholder="Add notes about this candidate..."></textarea>
+                                <textarea class="notes-input" id="quickNotesInput" data-placeholder-en="Add notes about this candidate..." data-placeholder-es="Agregar notas sobre este candidato..." placeholder="Add notes about this candidate..."></textarea>
                                 <div class="notes-footer">
                                     <div class="note-tags">
                                         <span class="note-tag" onclick="addTag('Strong candidate')"><span class="tab-text-en">Strong candidate</span><span class="tab-text-es">Candidato fuerte</span></span>
@@ -4547,6 +4547,14 @@
             // Update document language attribute
             document.documentElement.lang = lang;
             
+            // Update Quick Notes placeholder
+            const quickNotesInput = document.getElementById('quickNotesInput');
+            if (quickNotesInput) {
+                quickNotesInput.placeholder = lang === 'es' 
+                    ? quickNotesInput.dataset.placeholderEs 
+                    : quickNotesInput.dataset.placeholderEn;
+            }
+            
             // Sync candidate dashboard dropdown
             if (syncCandidate) {
                 setCandidateLanguage(lang, flag, text, false);
@@ -4667,6 +4675,7 @@
                 videoProgress: 35,
                 scores: { communications: 88, experience: 75, skills: 92, history: 70, resume: 85 },
                 interviewSummary: "Marcus presented himself as a confident and articulate candidate with strong communication skills. He demonstrated excellent knowledge of DOT regulations and safety protocols. With 8 years of OTR experience, he's handled diverse freight types including hazmat. He mentioned leaving his previous employer due to scheduling conflicts but spoke positively about his experience there. His CDL-A is current with all endorsements. Recommended for long-haul routes based on his experience and professional demeanor.",
+                interviewSummaryEs: "Marcus se presentó como un candidato seguro y articulado con fuertes habilidades de comunicación. Demostró un excelente conocimiento de las regulaciones del DOT y los protocolos de seguridad. Con 8 años de experiencia OTR, ha manejado diversos tipos de carga incluyendo materiales peligrosos. Mencionó que dejó su empleador anterior debido a conflictos de horario pero habló positivamente sobre su experiencia allí. Su CDL-A está vigente con todos los endosos. Recomendado para rutas de larga distancia basándose en su experiencia y comportamiento profesional.",
                 onboarding: {
                     progress: 75,
                     status: 'Training',
@@ -4704,6 +4713,7 @@
                 videoProgress: 100,
                 scores: { communications: 92, experience: 68, skills: 85, history: 88, resume: 90 },
                 interviewSummary: "Sarah demonstrated exceptional communication skills and a positive attitude throughout the interview. She has 3 years of regional delivery experience with an excellent safety record - zero accidents or violations. While her experience is shorter than some candidates, her attention to detail and customer service orientation stood out. She expressed strong interest in box truck and local delivery routes. Her CDL-B is current and she's eager to grow with the company. Great fit for customer-facing delivery roles.",
+                interviewSummaryEs: "Sarah demostró habilidades de comunicación excepcionales y una actitud positiva durante toda la entrevista. Tiene 3 años de experiencia en entregas regionales con un excelente historial de seguridad - cero accidentes o violaciones. Aunque su experiencia es más corta que la de algunos candidatos, su atención al detalle y orientación al servicio al cliente destacaron. Expresó un fuerte interés en rutas de camiones de caja y entregas locales. Su CDL-B está vigente y está ansiosa por crecer con la empresa. Excelente opción para roles de entrega con contacto directo con clientes.",
                 onboarding: {
                     progress: 100,
                     status: 'Docs Complete',
@@ -4741,6 +4751,7 @@
                 videoProgress: 100,
                 scores: { communications: 85, experience: 98, skills: 90, history: 82, resume: 78 },
                 interviewSummary: "Santiago brings exceptional experience with 12 years in the industry, primarily in long-haul and cross-border routes between the US and Mexico. He is fully bilingual and demonstrated excellent communication skills in both English and Spanish during the interview. His knowledge of customs procedures and border crossing documentation is extensive. He holds a clean MVR and has maintained TWIC and FAST card certifications. He expressed interest in dedicated routes to have more predictable schedules. His only concern was ensuring consistent miles. A highly experienced candidate ideal for cross-border operations or routes requiring bilingual communication.",
+                interviewSummaryEs: "Santiago aporta una experiencia excepcional con 12 años en la industria, principalmente en rutas de larga distancia y transfronterizas entre EE.UU. y México. Es completamente bilingüe y demostró excelentes habilidades de comunicación tanto en inglés como en español durante la entrevista. Su conocimiento de los procedimientos aduaneros y la documentación de cruces fronterizos es extenso. Tiene un MVR limpio y ha mantenido las certificaciones TWIC y FAST card. Expresó interés en rutas dedicadas para tener horarios más predecibles. Su única preocupación era asegurar millas consistentes. Un candidato altamente experimentado ideal para operaciones transfronterizas o rutas que requieren comunicación bilingüe.",
                 onboarding: null
             },
             'emily-rodriguez': {
@@ -4757,6 +4768,7 @@
                 videoProgress: 100,
                 scores: { communications: 78, experience: 82, skills: 88, history: 75, resume: 80 },
                 interviewSummary: "Emily showed solid technical knowledge and 5 years of diverse driving experience including reefer and dry van. She was somewhat reserved during the interview but answered questions thoroughly. She has experience with ELD systems and fleet management software. There was a brief employment gap in 2023 which she explained was for family medical leave. Her references from previous employers were positive. She prefers regional routes to be closer to family. Recommend for reefer routes given her temperature-sensitive cargo experience.",
+                interviewSummaryEs: "Emily demostró sólidos conocimientos técnicos y 5 años de experiencia diversa en conducción incluyendo refrigerados y camiones secos. Fue algo reservada durante la entrevista pero respondió las preguntas de manera completa. Tiene experiencia con sistemas ELD y software de gestión de flotas. Hubo una breve brecha de empleo en 2023 que explicó fue por licencia médica familiar. Sus referencias de empleadores anteriores fueron positivas. Prefiere rutas regionales para estar más cerca de su familia. Recomendada para rutas de refrigerados dada su experiencia con carga sensible a la temperatura.",
                 onboarding: {
                     progress: 50,
                     status: 'Docs Pending',
@@ -4807,6 +4819,7 @@
                 videoProgress: 100,
                 scores: { communications: 95, experience: 90, skills: 94, history: 92, resume: 88 },
                 interviewSummary: "Robert is an outstanding candidate - one of our strongest this quarter. With 7 years of OTR experience including tanker and hazmat endorsements, he brings versatility and expertise. He articulated safety procedures clearly and demonstrated leadership qualities from his time as a trainer at his previous company. Clean MVR with no accidents or violations. He left his previous employer for better benefits and growth opportunities. Highly professional, bilingual (English/Spanish), and immediately available. Strongly recommend for any route type - prioritize for tanker or hazmat runs.",
+                interviewSummaryEs: "Robert es un candidato sobresaliente - uno de los más fuertes este trimestre. Con 7 años de experiencia OTR incluyendo endosos de tanque y materiales peligrosos, aporta versatilidad y experiencia. Articuló claramente los procedimientos de seguridad y demostró cualidades de liderazgo de su tiempo como entrenador en su empresa anterior. MVR limpio sin accidentes ni violaciones. Dejó su empleador anterior por mejores beneficios y oportunidades de crecimiento. Altamente profesional, bilingüe (inglés/español), y disponible inmediatamente. Recomendado fuertemente para cualquier tipo de ruta - priorizar para rutas de tanque o materiales peligrosos.",
                 onboarding: {
                     progress: 100,
                     status: 'Ready to Start',
@@ -4904,7 +4917,12 @@
             if (summaryContainer && summaryContent) {
                 if (candidate.interviewSummary) {
                     summaryContainer.classList.remove('no-summary');
-                    summaryContent.textContent = candidate.interviewSummary;
+                    // Use bilingual content if Spanish translation exists
+                    if (candidate.interviewSummaryEs) {
+                        summaryContent.innerHTML = `<span class="tab-text-en">${candidate.interviewSummary}</span><span class="tab-text-es">${candidate.interviewSummaryEs}</span>`;
+                    } else {
+                        summaryContent.textContent = candidate.interviewSummary;
+                    }
                 } else {
                     summaryContainer.classList.add('no-summary');
                     summaryContent.textContent = '';
