@@ -4104,58 +4104,58 @@
         const modalConfigs = {
             approve: {
                 icon: '✓',
-                title: 'Approve for Next Step',
+                title: '<span class="tab-text-en">Approve for Next Step</span><span class="tab-text-es">Aprobar para el Siguiente Paso</span>',
                 body: `
-                    <p>You are about to advance <strong>[Candidate Name]</strong> to the next stage in the hiring process.</p>
+                    <p><span class="tab-text-en">You are about to advance <strong>[Candidate Name]</strong> to the next stage in the hiring process.</span><span class="tab-text-es">Está a punto de avanzar a <strong>[Candidate Name]</strong> a la siguiente etapa del proceso de contratación.</span></p>
                     <div class="modal-input-group">
-                        <label>Move to Stage</label>
+                        <label><span class="tab-text-en">Move to Stage</span><span class="tab-text-es">Mover a Etapa</span></label>
                         <select class="modal-select">
-                            <option value="phone">Phone Screen</option>
-                            <option value="interview" selected>In-Person Interview</option>
-                            <option value="background">Background Check</option>
-                            <option value="offer">Offer Stage</option>
+                            <option value="phone">Phone Screen / Llamada Telefónica</option>
+                            <option value="interview" selected>In-Person Interview / Entrevista en Persona</option>
+                            <option value="background">Background Check / Verificación de Antecedentes</option>
+                            <option value="offer">Offer Stage / Etapa de Oferta</option>
                         </select>
                     </div>
                     <div class="modal-input-group">
-                        <label>Notes (optional)</label>
+                        <label><span class="tab-text-en">Notes (optional)</span><span class="tab-text-es">Notas (opcional)</span></label>
                         <textarea class="modal-textarea" placeholder="Add any notes about this decision..."></textarea>
                     </div>
                 `,
-                confirmText: 'Approve & Advance',
+                confirmText: '<span class="tab-text-en">Approve & Advance</span><span class="tab-text-es">Aprobar y Avanzar</span>',
                 confirmClass: ''
             },
             offer: {
                 icon: '📄',
-                title: 'Send Offer Letter',
+                title: '<span class="tab-text-en">Send Offer Letter</span><span class="tab-text-es">Enviar Carta de Oferta</span>',
                 body: `
-                    <p>Send an offer letter to <strong>[Candidate Name]</strong> for the CDL-A Driver position.</p>
+                    <p><span class="tab-text-en">Send an offer letter to <strong>[Candidate Name]</strong> for the CDL-A Driver position.</span><span class="tab-text-es">Enviar una carta de oferta a <strong>[Candidate Name]</strong> para el puesto de Conductor CDL-A.</span></p>
                     <div class="modal-input-group">
-                        <label>Offer Template</label>
+                        <label><span class="tab-text-en">Offer Template</span><span class="tab-text-es">Plantilla de Oferta</span></label>
                         <select class="modal-select">
-                            <option value="standard">Standard CDL-A Offer</option>
-                            <option value="experienced">Experienced Driver Offer</option>
-                            <option value="signing">Signing Bonus Offer</option>
+                            <option value="standard">Standard CDL-A Offer / Oferta CDL-A Estándar</option>
+                            <option value="experienced">Experienced Driver Offer / Oferta para Conductor Experimentado</option>
+                            <option value="signing">Signing Bonus Offer / Oferta con Bono de Firma</option>
                         </select>
                     </div>
                     <div class="modal-input-group">
-                        <label>Starting Salary</label>
+                        <label><span class="tab-text-en">Starting Salary</span><span class="tab-text-es">Salario Inicial</span></label>
                         <input type="text" class="modal-input" value="$65,000/year" />
                     </div>
                     <div class="modal-input-group">
-                        <label>Start Date</label>
+                        <label><span class="tab-text-en">Start Date</span><span class="tab-text-es">Fecha de Inicio</span></label>
                         <input type="date" class="modal-input" value="2025-12-15" />
                     </div>
                 `,
-                confirmText: 'Send Offer',
+                confirmText: '<span class="tab-text-en">Send Offer</span><span class="tab-text-es">Enviar Oferta</span>',
                 confirmClass: ''
             },
             forward: {
                 icon: '↗️',
-                title: 'Forward to Manager',
+                title: '<span class="tab-text-en">Forward to Manager</span><span class="tab-text-es">Enviar al Gerente</span>',
                 body: `
-                    <p>Forward <strong>[Candidate Name]'s</strong> application to a manager for review.</p>
+                    <p><span class="tab-text-en">Forward <strong>[Candidate Name]'s</strong> application to a manager for review.</span><span class="tab-text-es">Enviar la solicitud de <strong>[Candidate Name]</strong> a un gerente para revisión.</span></p>
                     <div class="modal-input-group">
-                        <label>Select Manager</label>
+                        <label><span class="tab-text-en">Select Manager</span><span class="tab-text-es">Seleccionar Gerente</span></label>
                         <select class="modal-select">
                             <option value="mike">Mike Reynolds - Fleet Manager</option>
                             <option value="sarah">Sarah Chen - Operations Director</option>
@@ -4163,168 +4163,168 @@
                         </select>
                     </div>
                     <div class="modal-input-group">
-                        <label>Priority</label>
+                        <label><span class="tab-text-en">Priority</span><span class="tab-text-es">Prioridad</span></label>
                         <select class="modal-select">
                             <option value="normal">Normal</option>
-                            <option value="high">High Priority</option>
-                            <option value="urgent">Urgent Review</option>
+                            <option value="high">High Priority / Alta Prioridad</option>
+                            <option value="urgent">Urgent Review / Revisión Urgente</option>
                         </select>
                     </div>
                     <div class="modal-input-group">
-                        <label>Message</label>
+                        <label><span class="tab-text-en">Message</span><span class="tab-text-es">Mensaje</span></label>
                         <textarea class="modal-textarea" placeholder="Add a message for the manager...">Strong candidate with excellent experience. AI scores indicate good fit. Recommend moving forward.</textarea>
                     </div>
                 `,
-                confirmText: 'Forward Application',
+                confirmText: '<span class="tab-text-en">Forward Application</span><span class="tab-text-es">Enviar Solicitud</span>',
                 confirmClass: ''
             },
             schedule: {
                 icon: '📅',
-                title: 'Schedule Interview',
+                title: '<span class="tab-text-en">Schedule Interview</span><span class="tab-text-es">Programar Entrevista</span>',
                 body: `
-                    <p>Schedule an interview with <strong>[Candidate Name]</strong>.</p>
+                    <p><span class="tab-text-en">Schedule an interview with <strong>[Candidate Name]</strong>.</span><span class="tab-text-es">Programar una entrevista con <strong>[Candidate Name]</strong>.</span></p>
                     <div class="modal-input-group">
-                        <label>Interview Type</label>
+                        <label><span class="tab-text-en">Interview Type</span><span class="tab-text-es">Tipo de Entrevista</span></label>
                         <select class="modal-select">
-                            <option value="phone">Phone Screen</option>
-                            <option value="video">Video Interview</option>
-                            <option value="inperson" selected>In-Person Interview</option>
-                            <option value="road">Road Test</option>
+                            <option value="phone">Phone Screen / Llamada Telefónica</option>
+                            <option value="video">Video Interview / Entrevista por Video</option>
+                            <option value="inperson" selected>In-Person Interview / Entrevista en Persona</option>
+                            <option value="road">Road Test / Prueba de Manejo</option>
                         </select>
                     </div>
                     <div class="modal-input-group">
-                        <label>Date & Time</label>
+                        <label><span class="tab-text-en">Date & Time</span><span class="tab-text-es">Fecha y Hora</span></label>
                         <input type="datetime-local" class="modal-input" />
                     </div>
                     <div class="modal-input-group">
-                        <label>Location / Link</label>
+                        <label><span class="tab-text-en">Location / Link</span><span class="tab-text-es">Ubicación / Enlace</span></label>
                         <input type="text" class="modal-input" placeholder="MVE Dallas Terminal or Zoom link" />
                     </div>
                     <div class="modal-input-group">
-                        <label>Interviewer</label>
+                        <label><span class="tab-text-en">Interviewer</span><span class="tab-text-es">Entrevistador</span></label>
                         <select class="modal-select">
-                            <option value="you">Yourself</option>
+                            <option value="you">Yourself / Usted Mismo</option>
                             <option value="mike">Mike Reynolds</option>
-                            <option value="panel">Interview Panel</option>
+                            <option value="panel">Interview Panel / Panel de Entrevistas</option>
                         </select>
                     </div>
                 `,
-                confirmText: 'Schedule & Send Invite',
+                confirmText: '<span class="tab-text-en">Schedule & Send Invite</span><span class="tab-text-es">Programar y Enviar Invitación</span>',
                 confirmClass: ''
             },
             notes: {
                 icon: '📝',
-                title: 'Add Notes',
+                title: '<span class="tab-text-en">Add Notes</span><span class="tab-text-es">Agregar Notas</span>',
                 body: `
-                    <p>Add detailed notes about <strong>[Candidate Name]</strong>.</p>
+                    <p><span class="tab-text-en">Add detailed notes about <strong>[Candidate Name]</strong>.</span><span class="tab-text-es">Agregar notas detalladas sobre <strong>[Candidate Name]</strong>.</span></p>
                     <div class="modal-input-group">
-                        <label>Note Category</label>
+                        <label><span class="tab-text-en">Note Category</span><span class="tab-text-es">Categoría de Nota</span></label>
                         <select class="modal-select">
-                            <option value="interview">Interview Feedback</option>
-                            <option value="reference">Reference Check</option>
-                            <option value="general">General Notes</option>
-                            <option value="concern">Concern/Flag</option>
+                            <option value="interview">Interview Feedback / Retroalimentación de Entrevista</option>
+                            <option value="reference">Reference Check / Verificación de Referencias</option>
+                            <option value="general">General Notes / Notas Generales</option>
+                            <option value="concern">Concern/Flag / Preocupación/Bandera</option>
                         </select>
                     </div>
                     <div class="modal-input-group">
-                        <label>Notes</label>
+                        <label><span class="tab-text-en">Notes</span><span class="tab-text-es">Notas</span></label>
                         <textarea class="modal-textarea" rows="6" placeholder="Enter your detailed notes here..."></textarea>
                     </div>
                 `,
-                confirmText: 'Save Notes',
+                confirmText: '<span class="tab-text-en">Save Notes</span><span class="tab-text-es">Guardar Notas</span>',
                 confirmClass: ''
             },
             message: {
                 icon: '💬',
-                title: 'Send Message',
+                title: '<span class="tab-text-en">Send Message</span><span class="tab-text-es">Enviar Mensaje</span>',
                 body: `
-                    <p>Send a message to <strong>Marcus Johnson</strong>.</p>
+                    <p><span class="tab-text-en">Send a message to <strong>Marcus Johnson</strong>.</span><span class="tab-text-es">Enviar un mensaje a <strong>Marcus Johnson</strong>.</span></p>
                     <div class="modal-input-group">
-                        <label>Message Type</label>
+                        <label><span class="tab-text-en">Message Type</span><span class="tab-text-es">Tipo de Mensaje</span></label>
                         <select class="modal-select">
-                            <option value="email">Email</option>
-                            <option value="sms">SMS Text</option>
-                            <option value="both">Both Email & SMS</option>
+                            <option value="email">Email / Correo Electrónico</option>
+                            <option value="sms">SMS Text / Mensaje de Texto</option>
+                            <option value="both">Both Email & SMS / Ambos Correo y SMS</option>
                         </select>
                     </div>
                     <div class="modal-input-group">
-                        <label>Template (optional)</label>
+                        <label><span class="tab-text-en">Template (optional)</span><span class="tab-text-es">Plantilla (opcional)</span></label>
                         <select class="modal-select">
-                            <option value="custom">Custom Message</option>
-                            <option value="status">Application Status Update</option>
-                            <option value="docs">Document Request</option>
-                            <option value="reminder">Interview Reminder</option>
+                            <option value="custom">Custom Message / Mensaje Personalizado</option>
+                            <option value="status">Application Status Update / Actualización de Estado</option>
+                            <option value="docs">Document Request / Solicitud de Documentos</option>
+                            <option value="reminder">Interview Reminder / Recordatorio de Entrevista</option>
                         </select>
                     </div>
                     <div class="modal-input-group">
-                        <label>Subject</label>
+                        <label><span class="tab-text-en">Subject</span><span class="tab-text-es">Asunto</span></label>
                         <input type="text" class="modal-input" placeholder="Message subject..." />
                     </div>
                     <div class="modal-input-group">
-                        <label>Message</label>
+                        <label><span class="tab-text-en">Message</span><span class="tab-text-es">Mensaje</span></label>
                         <textarea class="modal-textarea" rows="5" placeholder="Type your message here..."></textarea>
                     </div>
                 `,
-                confirmText: 'Send Message',
+                confirmText: '<span class="tab-text-en">Send Message</span><span class="tab-text-es">Enviar Mensaje</span>',
                 confirmClass: ''
             },
             hold: {
                 icon: '⏸️',
-                title: 'Put on Hold',
+                title: '<span class="tab-text-en">Put on Hold</span><span class="tab-text-es">Poner en Espera</span>',
                 body: `
-                    <p>Place <strong>[Candidate Name]'s</strong> application on hold.</p>
+                    <p><span class="tab-text-en">Place <strong>[Candidate Name]'s</strong> application on hold.</span><span class="tab-text-es">Poner la solicitud de <strong>[Candidate Name]</strong> en espera.</span></p>
                     <div class="modal-input-group">
-                        <label>Hold Reason</label>
+                        <label><span class="tab-text-en">Hold Reason</span><span class="tab-text-es">Razón de Espera</span></label>
                         <select class="modal-select">
-                            <option value="pending">Pending Additional Info</option>
-                            <option value="timing">Timing - Candidate Not Ready</option>
-                            <option value="headcount">Headcount Freeze</option>
-                            <option value="other">Other Reason</option>
+                            <option value="pending">Pending Additional Info / Pendiente Información Adicional</option>
+                            <option value="timing">Timing - Candidate Not Ready / Tiempo - Candidato No Está Listo</option>
+                            <option value="headcount">Headcount Freeze / Congelamiento de Personal</option>
+                            <option value="other">Other Reason / Otra Razón</option>
                         </select>
                     </div>
                     <div class="modal-input-group">
-                        <label>Follow-up Date</label>
+                        <label><span class="tab-text-en">Follow-up Date</span><span class="tab-text-es">Fecha de Seguimiento</span></label>
                         <input type="date" class="modal-input" />
                     </div>
                     <div class="modal-input-group">
-                        <label>Notes</label>
+                        <label><span class="tab-text-en">Notes</span><span class="tab-text-es">Notas</span></label>
                         <textarea class="modal-textarea" placeholder="Reason for hold and next steps..."></textarea>
                     </div>
                 `,
-                confirmText: 'Put on Hold',
+                confirmText: '<span class="tab-text-en">Put on Hold</span><span class="tab-text-es">Poner en Espera</span>',
                 confirmClass: ''
             },
             reject: {
                 icon: '✕',
-                title: 'Reject Candidate',
+                title: '<span class="tab-text-en">Reject Candidate</span><span class="tab-text-es">Rechazar Candidato</span>',
                 body: `
-                    <p>You are about to reject <strong>[Candidate Name]'s</strong> application. This action will:</p>
+                    <p><span class="tab-text-en">You are about to reject <strong>[Candidate Name]'s</strong> application. This action will:</span><span class="tab-text-es">Está a punto de rechazar la solicitud de <strong>[Candidate Name]</strong>. Esta acción:</span></p>
                     <ul style="color: var(--text-secondary); font-size: 14px; margin: 12px 0; padding-left: 20px;">
-                        <li>Move the candidate to rejected status</li>
-                        <li>Send a rejection notification (optional)</li>
-                        <li>Archive the application</li>
+                        <li><span class="tab-text-en">Move the candidate to rejected status</span><span class="tab-text-es">Moverá al candidato a estado rechazado</span></li>
+                        <li><span class="tab-text-en">Send a rejection notification (optional)</span><span class="tab-text-es">Enviará una notificación de rechazo (opcional)</span></li>
+                        <li><span class="tab-text-en">Archive the application</span><span class="tab-text-es">Archivará la solicitud</span></li>
                     </ul>
                     <div class="modal-input-group">
-                        <label>Rejection Reason</label>
+                        <label><span class="tab-text-en">Rejection Reason</span><span class="tab-text-es">Razón de Rechazo</span></label>
                         <select class="modal-select">
-                            <option value="qualifications">Does Not Meet Qualifications</option>
-                            <option value="experience">Insufficient Experience</option>
-                            <option value="culture">Culture Fit Concerns</option>
-                            <option value="background">Background Check Issues</option>
-                            <option value="withdrew">Candidate Withdrew</option>
-                            <option value="other">Other</option>
+                            <option value="qualifications">Does Not Meet Qualifications / No Cumple con los Requisitos</option>
+                            <option value="experience">Insufficient Experience / Experiencia Insuficiente</option>
+                            <option value="culture">Culture Fit Concerns / Preocupaciones de Ajuste Cultural</option>
+                            <option value="background">Background Check Issues / Problemas de Verificación de Antecedentes</option>
+                            <option value="withdrew">Candidate Withdrew / Candidato Se Retiró</option>
+                            <option value="other">Other / Otro</option>
                         </select>
                     </div>
                     <div class="modal-input-group">
-                        <label>Internal Notes</label>
+                        <label><span class="tab-text-en">Internal Notes</span><span class="tab-text-es">Notas Internas</span></label>
                         <textarea class="modal-textarea" placeholder="Add internal notes about this decision..."></textarea>
                     </div>
                     <div class="modal-input-group" style="display: flex; align-items: center; gap: 10px;">
                         <input type="checkbox" id="sendRejection" checked style="width: auto;" />
-                        <label for="sendRejection" style="margin-bottom: 0;">Send rejection email to candidate</label>
+                        <label for="sendRejection" style="margin-bottom: 0;"><span class="tab-text-en">Send rejection email to candidate</span><span class="tab-text-es">Enviar correo de rechazo al candidato</span></label>
                     </div>
                 `,
-                confirmText: 'Reject Candidate',
+                confirmText: '<span class="tab-text-en">Reject Candidate</span><span class="tab-text-es">Rechazar Candidato</span>',
                 confirmClass: 'danger'
             }
         };
@@ -4338,12 +4338,12 @@
             const candidateName = candidate ? candidate.name : 'Selected Candidate';
 
             document.getElementById('modalIcon').textContent = config.icon;
-            document.getElementById('modalTitleText').textContent = config.title;
+            document.getElementById('modalTitleText').innerHTML = config.title;
             
             // Replace placeholder with actual candidate name
             let bodyContent = config.body.replace(/\[Candidate Name\]/g, candidateName);
             document.getElementById('modalBody').innerHTML = bodyContent;
-            document.getElementById('modalConfirm').textContent = config.confirmText;
+            document.getElementById('modalConfirm').innerHTML = config.confirmText;
             
             const confirmBtn = document.getElementById('modalConfirm');
             confirmBtn.className = 'modal-btn confirm' + (config.confirmClass ? ' ' + config.confirmClass : '');
@@ -5090,8 +5090,8 @@
                                         </svg>
                                     </div>
                                     <div class="chatbot-header-text">
-                                        <span class="chatbot-name">MVE Assistant</span>
-                                        <span class="chatbot-status">● Online</span>
+                                        <span class="chatbot-name"><span class="tab-text-en">MVE Assistant</span><span class="tab-text-es">Asistente MVE</span></span>
+                                        <span class="chatbot-status"><span class="tab-text-en">● Online</span><span class="tab-text-es">● En Línea</span></span>
                                     </div>
                                 </div>
                                 <button class="chatbot-close" id="chatbot-close">×</button>
@@ -5101,11 +5101,11 @@
                             </div>
                             
                             <div class="chatbot-quick-actions" id="chatbot-quick-actions">
-                                <button class="quick-action-btn" data-message="Tell me about driver requirements">Driver Requirements</button>
-                                <button class="quick-action-btn" data-message="What are the pay rates?">Pay Rates</button>
-                                <button class="quick-action-btn" data-message="How do I apply?">How to Apply</button>
-                                <button class="quick-action-btn" data-message="Benefits information">Benefits</button>
-                                <button class="quick-action-btn" data-message="I need to reset my password">Reset Password</button>
+                                <button class="quick-action-btn" data-message="Tell me about driver requirements"><span class="tab-text-en">Driver Requirements</span><span class="tab-text-es">Requisitos del Conductor</span></button>
+                                <button class="quick-action-btn" data-message="What are the pay rates?"><span class="tab-text-en">Pay Rates</span><span class="tab-text-es">Tarifas de Pago</span></button>
+                                <button class="quick-action-btn" data-message="How do I apply?"><span class="tab-text-en">How to Apply</span><span class="tab-text-es">Cómo Aplicar</span></button>
+                                <button class="quick-action-btn" data-message="Benefits information"><span class="tab-text-en">Benefits</span><span class="tab-text-es">Beneficios</span></button>
+                                <button class="quick-action-btn" data-message="I need to reset my password"><span class="tab-text-en">Reset Password</span><span class="tab-text-es">Restablecer Contraseña</span></button>
                             </div>
                             
                             <div class="chatbot-input-container">
@@ -5116,7 +5116,7 @@
                                     </svg>
                                 </button>
                             </div>
-                            <div class="chatbot-disclaimer">AI Assistant can make mistakes. Check important info.</div>
+                            <div class="chatbot-disclaimer"><span class="tab-text-en">AI Assistant can make mistakes. Check important info.</span><span class="tab-text-es">El Asistente de IA puede cometer errores. Verifica información importante.</span></div>
                         </div>
                     </div>
                 `;
