@@ -6,7 +6,15 @@
     },
     "routes": [
         {
+            "pattern": "getpurplesquirrel.com/mve",
+            "zone_name": "getpurplesquirrel.com"
+        },
+        {
             "pattern": "getpurplesquirrel.com/mve/*",
+            "zone_name": "getpurplesquirrel.com"
+        },
+        {
+            "pattern": "www.getpurplesquirrel.com/mve",
             "zone_name": "getpurplesquirrel.com"
         },
         {
