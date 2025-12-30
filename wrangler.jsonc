@@ -1,7 +1,17 @@
 {
-  "name": "trucking-staffing",
-  "compatibility_date": "2025-12-30",
-  "assets": {
-    "directory": "./"
-  }
+    "name": "trucking-staffing",
+    "compatibility_date": "2025-12-30",
+    "assets": {
+        "directory": "./"
+    },
+    "routes": [
+        {
+            "pattern": "getpurplesquirrel.com/mve/*",
+            "zone_name": "getpurplesquirrel.com"
+        },
+        {
+            "pattern": "www.getpurplesquirrel.com/mve/*",
+            "zone_name": "getpurplesquirrel.com"
+        }
+    ]
 }
