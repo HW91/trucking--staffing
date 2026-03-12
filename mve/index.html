@@ -2832,6 +2832,229 @@
             content: "";
         }
 
+        /* ===== ADMIN SETTINGS STYLES ===== */
+        .admin-settings-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 14px;
+            background: rgba(239,68,68,0.12);
+            border: 1px solid rgba(239,68,68,0.3);
+            border-radius: 8px;
+            color: #f87171;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .admin-settings-btn:hover {
+            background: rgba(239,68,68,0.2);
+            border-color: rgba(239,68,68,0.5);
+        }
+        .role-chip {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .role-chip.admin { background: rgba(239,68,68,0.12); color: #f87171; border: 1px solid rgba(239,68,68,0.25); }
+        .role-chip.recruiter { background: rgba(65,105,225,0.15); color: #7da8ff; border: 1px solid rgba(65,105,225,0.25); }
+        /* Admin Settings Modal */
+        .admin-modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.65);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .admin-modal-overlay.open { display: flex; }
+        .admin-modal {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            width: 100%;
+            max-width: 680px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+        }
+        .admin-modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            background: var(--bg-secondary);
+            z-index: 1;
+        }
+        .admin-modal-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .admin-modal-title h3 { font-size: 17px; font-weight: 700; color: var(--text-primary); }
+        .admin-modal-body { padding: 24px; }
+        .admin-modal-close {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 22px;
+            cursor: pointer;
+            line-height: 1;
+            padding: 4px;
+        }
+        .admin-modal-close:hover { color: var(--text-primary); }
+        /* Settings sections */
+        .settings-section {
+            margin-bottom: 28px;
+        }
+        .settings-section-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+        .settings-section-header h4 {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .settings-section > p {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+            line-height: 1.55;
+        }
+        .api-key-card {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 10px;
+        }
+        .api-key-card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+        .api-key-logo {
+            width: 32px; height: 32px; border-radius: 8px;
+            background: var(--input-bg);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 16px; flex-shrink: 0;
+        }
+        .api-key-provider { flex: 1; }
+        .api-key-provider-name { font-size: 13px; font-weight: 700; color: var(--text-primary); }
+        .api-key-provider-desc { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+        .api-conn-status {
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+        .api-conn-status.connected { background: rgba(34,197,94,0.15); color: #4ade80; }
+        .api-conn-status.not-configured { background: rgba(148,163,184,0.12); color: var(--text-muted); }
+        .api-key-input-row {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        .api-key-input-wrapper {
+            flex: 1;
+            position: relative;
+        }
+        .api-key-input {
+            width: 100%;
+            padding: 9px 38px 9px 12px;
+            background: var(--input-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 13px;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 0.5px;
+            transition: border-color 0.2s;
+        }
+        .api-key-input:focus { outline: none; border-color: var(--mve-gold); }
+        .api-key-reveal-btn {
+            position: absolute;
+            right: 8px; top: 50%; transform: translateY(-50%);
+            background: none; border: none;
+            color: var(--text-muted); cursor: pointer;
+            font-size: 14px; padding: 4px;
+        }
+        .api-key-reveal-btn:hover { color: var(--text-primary); }
+        .api-key-save-btn {
+            padding: 9px 16px;
+            background: var(--gradient-accent);
+            color: var(--mve-navy-dark);
+            border: none;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: opacity 0.2s;
+        }
+        .api-key-save-btn:hover { opacity: 0.85; }
+        .api-key-save-btn.saved {
+            background: rgba(34,197,94,0.2);
+            color: #4ade80;
+        }
+        .api-key-note {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        /* Access control warning */
+        .access-control-notice {
+            background: rgba(239,68,68,0.07);
+            border: 1px solid rgba(239,68,68,0.2);
+            border-radius: 10px;
+            padding: 12px 14px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 22px;
+        }
+        .access-control-notice strong { color: #f87171; }
+        /* Recruiter integration status (read-only) */
+        .integration-status-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 14px;
+            background: var(--bg-tertiary);
+            border-radius: 10px;
+            margin-bottom: 8px;
+        }
+        .integration-status-dot {
+            width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+        }
+        .integration-status-dot.on  { background: #4ade80; box-shadow: 0 0 6px rgba(74,222,128,0.5); }
+        .integration-status-dot.off { background: var(--text-muted); }
+        .integration-status-name { flex: 1; font-size: 13px; font-weight: 600; color: var(--text-primary); }
+        .integration-status-label { font-size: 11px; color: var(--text-muted); }
         /* ===== SAFETY VAULT STYLES ===== */
         .safety-vault-grid {
             display: grid;
@@ -3205,6 +3428,11 @@
                 </div>
                 <div class="theme-toggle" id="themeToggle" title="Toggle Light/Dark Mode"></div>
                 <div class="notification-badge">🔔</div>
+                <!-- Role indicator + Admin Settings (visible to admin only) -->
+                <div id="roleChip" class="role-chip admin" title="Viewing as Admin — click to switch role for demo">⚙ Admin</div>
+                <button class="admin-settings-btn" id="adminSettingsBtn" onclick="openAdminSettings()" title="Admin Settings — API Key Management">
+                    🔑 <span class="tab-text-en">API Keys</span><span class="tab-text-es">Claves API</span>
+                </button>
                 <div class="user-avatar">JR</div>
             </div>
         </div>
@@ -4647,6 +4875,27 @@
             <div class="card">
                 <div class="card-title"><span class="tab-text-en">Safety &amp; Compliance Vault</span><span class="tab-text-es">Bóveda de Seguridad y Cumplimiento</span></div>
 
+                <!-- Integration Status Bar (visible to all roles; keys only to admin) -->
+                <div id="svIntegrationBar" style="margin-bottom:16px;">
+                    <!-- Admin view: shows configure link -->
+                    <div id="svAdminIntegrationBar" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 14px;background:var(--bg-tertiary);border-radius:10px;border:1px solid var(--border-color);">
+                        <span style="font-size:12px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;margin-right:4px;"><span class="tab-text-en">Integrations</span><span class="tab-text-es">Integraciones</span></span>
+                        <div class="integration-status-row" style="margin:0;flex:0 0 auto;padding:6px 12px;"><div class="integration-status-dot on"></div><span class="integration-status-name" style="font-size:12px;">Checkr</span></div>
+                        <div class="integration-status-row" style="margin:0;flex:0 0 auto;padding:6px 12px;"><div class="integration-status-dot off"></div><span class="integration-status-name" style="font-size:12px;color:var(--text-muted);">SambaSafety</span></div>
+                        <div class="integration-status-row" style="margin:0;flex:0 0 auto;padding:6px 12px;"><div class="integration-status-dot on"></div><span class="integration-status-name" style="font-size:12px;">FMCSA Clearinghouse</span></div>
+                        <button onclick="openAdminSettings()" style="margin-left:auto;font-size:11px;font-weight:600;color:var(--mve-gold-light);background:none;border:none;cursor:pointer;text-decoration:underline;"><span class="tab-text-en">Manage API Keys →</span><span class="tab-text-es">Administrar Claves →</span></button>
+                    </div>
+                    <!-- Recruiter view: read-only status, no configure link -->
+                    <div id="svRecruiterIntegrationBar" style="display:none;padding:10px 14px;background:var(--bg-tertiary);border-radius:10px;border:1px solid var(--border-color);">
+                        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+                            <span style="font-size:12px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;margin-right:4px;"><span class="tab-text-en">Integrations</span><span class="tab-text-es">Integraciones</span></span>
+                            <div class="integration-status-row" style="margin:0;flex:0 0 auto;padding:6px 12px;"><div class="integration-status-dot on"></div><span class="integration-status-name" style="font-size:12px;">Checkr</span></div>
+                            <div class="integration-status-row" style="margin:0;flex:0 0 auto;padding:6px 12px;"><div class="integration-status-dot off"></div><span class="integration-status-name" style="font-size:12px;color:var(--text-muted);">SambaSafety</span><span class="integration-status-label" style="margin-left:4px;font-size:10px;">&nbsp;<span class="tab-text-en">(Contact your admin to configure)</span><span class="tab-text-es">(Contacta a tu admin para configurar)</span></span></div>
+                            <div class="integration-status-row" style="margin:0;flex:0 0 auto;padding:6px 12px;"><div class="integration-status-dot on"></div><span class="integration-status-name" style="font-size:12px;">FMCSA Clearinghouse</span></div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Audit Readiness Banner -->
                 <div class="audit-ready-banner">
                     <div class="audit-ready-icon">🛡️</div>
@@ -4890,6 +5139,139 @@
         <!-- Footer -->
         <div class="footer-brand">
             <p><span class="tab-text-en">Powered by</span><span class="tab-text-es">Desarrollado por</span> <a href="https://www.purplesquirrelai.com/" target="_blank">Purplesquirrel AI</a></p>
+        </div>
+    </div>
+
+    <!-- Admin Settings Modal (Admin-only) -->
+    <div class="admin-modal-overlay" id="adminSettingsModal">
+        <div class="admin-modal">
+            <div class="admin-modal-header">
+                <div class="admin-modal-title">
+                    <span style="font-size:20px;">🔑</span>
+                    <h3><span class="tab-text-en">Admin Settings — Integration API Keys</span><span class="tab-text-es">Configuración de Admin — Claves API</span></h3>
+                </div>
+                <button class="admin-modal-close" onclick="closeAdminSettings()">&times;</button>
+            </div>
+            <div class="admin-modal-body">
+
+                <!-- Access control notice -->
+                <div class="access-control-notice">
+                    <span style="font-size:16px;flex-shrink:0;">🔒</span>
+                    <div>
+                        <strong><span class="tab-text-en">Admin-Only Access.</span><span class="tab-text-es">Acceso Solo para Admin.</span></strong>
+                        <span class="tab-text-en"> This page is not visible to recruiter accounts. API keys are stored encrypted and never displayed in full after saving. Recruiters see only a "Connected" or "Not Configured" status indicator.</span>
+                        <span class="tab-text-es"> Esta página no es visible para cuentas de reclutador. Las claves API se almacenan cifradas y nunca se muestran completas después de guardar. Los reclutadores solo ven un indicador de estado "Conectado" o "No Configurado."</span>
+                    </div>
+                </div>
+
+                <!-- Section: Background Check Providers -->
+                <div class="settings-section">
+                    <div class="settings-section-header">
+                        <span>🚔</span>
+                        <h4><span class="tab-text-en">Background Check Providers</span><span class="tab-text-es">Proveedores de Verificación de Antecedentes</span></h4>
+                    </div>
+                    <p><span class="tab-text-en">Enter your company's own API key. Purple Squirrel will use this key for all MVR, PSP, and background check queries — charges go directly to your provider account.</span><span class="tab-text-es">Ingrese la clave API de su empresa. Purple Squirrel usará esta clave para todas las consultas de MVR, PSP y antecedentes — los cargos van directamente a su cuenta del proveedor.</span></p>
+
+                    <!-- Checkr -->
+                    <div class="api-key-card">
+                        <div class="api-key-card-header">
+                            <div class="api-key-logo">🔍</div>
+                            <div class="api-key-provider">
+                                <div class="api-key-provider-name">Checkr</div>
+                                <div class="api-key-provider-desc"><span class="tab-text-en">Background checks, MVR, drug &amp; alcohol screening</span><span class="tab-text-es">Verificaciones, MVR, pruebas de drogas y alcohol</span></div>
+                            </div>
+                            <span class="api-conn-status connected">● <span class="tab-text-en">Connected</span><span class="tab-text-es">Conectado</span></span>
+                        </div>
+                        <div class="api-key-input-row">
+                            <div class="api-key-input-wrapper">
+                                <input class="api-key-input" id="checkrKey" type="password" value="checkr_live_sk_••••••••••••••••••3f9a" placeholder="checkr_live_sk_...">
+                                <button class="api-key-reveal-btn" onclick="toggleKeyReveal('checkrKey', this)" title="Reveal key">👁</button>
+                            </div>
+                            <button class="api-key-save-btn saved" id="checkrSaveBtn" onclick="saveApiKey('checkrKey', 'checkrSaveBtn')">
+                                <span class="tab-text-en">✓ Saved</span><span class="tab-text-es">✓ Guardado</span>
+                            </button>
+                        </div>
+                        <div class="api-key-note">🔒 <span class="tab-text-en">Key is encrypted at rest. Only the last 4 characters are shown after saving.</span><span class="tab-text-es">La clave está cifrada. Solo se muestran los últimos 4 caracteres después de guardar.</span></div>
+                    </div>
+
+                    <!-- SambaSafety -->
+                    <div class="api-key-card">
+                        <div class="api-key-card-header">
+                            <div class="api-key-logo">🚗</div>
+                            <div class="api-key-provider">
+                                <div class="api-key-provider-name">SambaSafety</div>
+                                <div class="api-key-provider-desc"><span class="tab-text-en">Continuous MVR monitoring &amp; driver risk intelligence</span><span class="tab-text-es">Monitoreo continuo de MVR e inteligencia de riesgo del conductor</span></div>
+                            </div>
+                            <span class="api-conn-status not-configured">○ <span class="tab-text-en">Not Configured</span><span class="tab-text-es">No Configurado</span></span>
+                        </div>
+                        <div class="api-key-input-row">
+                            <div class="api-key-input-wrapper">
+                                <input class="api-key-input" id="sambaKey" type="password" value="" placeholder="ss_api_key_...">
+                                <button class="api-key-reveal-btn" onclick="toggleKeyReveal('sambaKey', this)" title="Reveal key">👁</button>
+                            </div>
+                            <button class="api-key-save-btn" id="sambaSaveBtn" onclick="saveApiKey('sambaKey', 'sambaSaveBtn')">
+                                <span class="tab-text-en">Save</span><span class="tab-text-es">Guardar</span>
+                            </button>
+                        </div>
+                        <div class="api-key-note">🔒 <span class="tab-text-en">Key is encrypted at rest. Only the last 4 characters are shown after saving.</span><span class="tab-text-es">La clave está cifrada. Solo se muestran los últimos 4 caracteres después de guardar.</span></div>
+                    </div>
+                </div>
+
+                <!-- Section: FMCSA Clearinghouse -->
+                <div class="settings-section">
+                    <div class="settings-section-header">
+                        <span>🏛️</span>
+                        <h4><span class="tab-text-en">FMCSA Drug &amp; Alcohol Clearinghouse</span><span class="tab-text-es">Clearinghouse FMCSA de Drogas y Alcohol</span></h4>
+                    </div>
+                    <p><span class="tab-text-en">Enter your FMCSA Clearinghouse employer credentials. These are obtained directly from the FMCSA portal (clearinghouse.fmcsa.dot.gov) and are unique to your DOT number.</span><span class="tab-text-es">Ingrese las credenciales de empleador del Clearinghouse FMCSA. Se obtienen directamente del portal FMCSA y son únicas para su número DOT.</span></p>
+
+                    <div class="api-key-card">
+                        <div class="api-key-card-header">
+                            <div class="api-key-logo">🏛️</div>
+                            <div class="api-key-provider">
+                                <div class="api-key-provider-name">FMCSA Clearinghouse</div>
+                                <div class="api-key-provider-desc"><span class="tab-text-en">Drug &amp; alcohol violation queries — required before every hire (49 CFR 382.701)</span><span class="tab-text-es">Consultas de violaciones de drogas y alcohol — requerido antes de cada contratación</span></div>
+                            </div>
+                            <span class="api-conn-status connected">● <span class="tab-text-en">Connected</span><span class="tab-text-es">Conectado</span></span>
+                        </div>
+                        <div style="display:flex;gap:10px;margin-bottom:8px;flex-wrap:wrap;">
+                            <div style="flex:1;min-width:160px;">
+                                <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;"><span class="tab-text-en">DOT Number</span><span class="tab-text-es">Número DOT</span></div>
+                                <input class="api-key-input" style="font-family:inherit;" type="text" value="1234567" placeholder="DOT #">
+                            </div>
+                            <div style="flex:2;min-width:200px;">
+                                <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;"><span class="tab-text-en">Clearinghouse API Token</span><span class="tab-text-es">Token API del Clearinghouse</span></div>
+                                <div class="api-key-input-row" style="margin:0;">
+                                    <div class="api-key-input-wrapper">
+                                        <input class="api-key-input" id="clhKey" type="password" value="fmcsa_ch_tok_••••••••••••••••••8c21" placeholder="fmcsa_ch_tok_...">
+                                        <button class="api-key-reveal-btn" onclick="toggleKeyReveal('clhKey', this)" title="Reveal key">👁</button>
+                                    </div>
+                                    <button class="api-key-save-btn saved" id="clhSaveBtn" onclick="saveApiKey('clhKey', 'clhSaveBtn')">✓</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="api-key-note">🔒 <span class="tab-text-en">Credentials tied to your DOT number. Queries are billed directly by FMCSA at $1.25/query (limited) or $0/query (full). Purple Squirrel never marks up query costs.</span><span class="tab-text-es">Credenciales vinculadas a su número DOT. Purple Squirrel nunca cobra adicional en el costo de las consultas.</span></div>
+                    </div>
+                </div>
+
+                <!-- Section: Billing note -->
+                <div class="settings-section">
+                    <div class="settings-section-header">
+                        <span>💳</span>
+                        <h4><span class="tab-text-en">Billing Transparency</span><span class="tab-text-es">Transparencia de Facturación</span></h4>
+                    </div>
+                    <div style="background:var(--bg-tertiary);border-radius:12px;padding:16px;font-size:12px;color:var(--text-secondary);line-height:1.65;">
+                        <p style="margin-bottom:8px;"><span class="tab-text-en">By entering your own API keys, <strong style="color:var(--text-primary);">all query charges go directly to your provider accounts</strong> — not through Purple Squirrel. This means:</span><span class="tab-text-es">Al ingresar sus propias claves API, <strong style="color:var(--text-primary);">todos los cargos van directamente a sus cuentas del proveedor</strong> — no a través de Purple Squirrel. Esto significa:</span></p>
+                        <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:6px;">
+                            <li style="display:flex;gap:8px;"><span style="color:#4ade80;">✓</span> <span class="tab-text-en">You negotiate your own rates directly with Checkr / SambaSafety</span><span class="tab-text-es">Usted negocia sus propias tarifas directamente con Checkr / SambaSafety</span></li>
+                            <li style="display:flex;gap:8px;"><span style="color:#4ade80;">✓</span> <span class="tab-text-en">Your volume discounts apply automatically</span><span class="tab-text-es">Sus descuentos por volumen se aplican automáticamente</span></li>
+                            <li style="display:flex;gap:8px;"><span style="color:#4ade80;">✓</span> <span class="tab-text-en">Purple Squirrel never has visibility into your query data or billing</span><span class="tab-text-es">Purple Squirrel nunca tiene visibilidad de sus datos de consulta o facturación</span></li>
+                            <li style="display:flex;gap:8px;"><span style="color:#4ade80;">✓</span> <span class="tab-text-en">Keys can be rotated or revoked at any time without affecting your account</span><span class="tab-text-es">Las claves pueden rotarse o revocarse en cualquier momento sin afectar su cuenta</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
 
@@ -6193,6 +6575,93 @@
         
         // Initialize chatbot
         chatbot.init();
+
+        // ===== ADMIN SETTINGS & ROLE MANAGEMENT =====
+        // Demo state: 'admin' or 'recruiter'
+        let currentRole = 'admin';
+
+        function openAdminSettings() {
+            if (currentRole !== 'admin') return; // guard — should never be callable by recruiter
+            document.getElementById('adminSettingsModal').classList.add('open');
+        }
+        function closeAdminSettings() {
+            document.getElementById('adminSettingsModal').classList.remove('open');
+        }
+        // Close on overlay click
+        document.getElementById('adminSettingsModal').addEventListener('click', function(e) {
+            if (e.target === this) closeAdminSettings();
+        });
+
+        // Toggle key visibility (reveal/hide)
+        function toggleKeyReveal(inputId, btn) {
+            const input = document.getElementById(inputId);
+            if (input.type === 'password') {
+                input.type = 'text';
+                btn.textContent = '🙈';
+            } else {
+                input.type = 'password';
+                btn.textContent = '👁';
+            }
+        }
+
+        // Save API key (demo: show confirmation, mask value, mark as saved)
+        function saveApiKey(inputId, btnId) {
+            const input = document.getElementById(inputId);
+            const btn   = document.getElementById(btnId);
+            const val   = input.value.trim();
+            if (!val) return;
+            // Mask — show only last 4 chars
+            const masked = '••••••••••••••••••' + val.slice(-4);
+            input.type  = 'password';
+            input.value = masked;
+            btn.classList.add('saved');
+            btn.innerHTML = '<span class="tab-text-en">✓ Saved</span><span class="tab-text-es">✓ Guardado</span>';
+            // Re-apply language visibility
+            applyLanguageToElement(btn);
+            // Update the connection status badge in the card
+            const card = btn.closest('.api-key-card');
+            if (card) {
+                const badge = card.querySelector('.api-conn-status');
+                if (badge) {
+                    badge.className = 'api-conn-status connected';
+                    badge.innerHTML = '● <span class="tab-text-en">Connected</span><span class="tab-text-es">Conectado</span>';
+                    applyLanguageToElement(badge);
+                }
+            }
+        }
+
+        // Apply current language to a single element (for dynamically updated nodes)
+        function applyLanguageToElement(el) {
+            const lang = document.documentElement.lang || 'en';
+            el.querySelectorAll('.tab-text-en').forEach(e => e.style.display = lang === 'es' ? 'none' : '');
+            el.querySelectorAll('.tab-text-es').forEach(e => e.style.display = lang === 'es' ? '' : 'none');
+        }
+
+        // Role toggle (demo only — lets the presenter switch between Admin and Recruiter view)
+        const roleChip = document.getElementById('roleChip');
+        const adminSettingsBtn = document.getElementById('adminSettingsBtn');
+        const svAdminBar = document.getElementById('svAdminIntegrationBar');
+        const svRecruiterBar = document.getElementById('svRecruiterIntegrationBar');
+
+        roleChip.addEventListener('click', function() {
+            if (currentRole === 'admin') {
+                // Switch to recruiter view
+                currentRole = 'recruiter';
+                roleChip.className = 'role-chip recruiter';
+                roleChip.textContent = '👤 Recruiter';
+                adminSettingsBtn.style.display = 'none';
+                svAdminBar.style.display = 'none';
+                svRecruiterBar.style.display = 'block';
+            } else {
+                // Switch back to admin view
+                currentRole = 'admin';
+                roleChip.className = 'role-chip admin';
+                roleChip.textContent = '⚙ Admin';
+                adminSettingsBtn.style.display = '';
+                svAdminBar.style.display = '';
+                svRecruiterBar.style.display = 'none';
+            }
+        });
     </script>
     
     <style>
